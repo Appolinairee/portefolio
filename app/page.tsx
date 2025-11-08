@@ -1,65 +1,75 @@
-import Image from "next/image";
+import AnimatedText from "@/components/base/AnimatedText";
+import Layout from "@/components/base/Layout";
+import TransitionEffect from "@/components/base/TransitionEffect";
+import Education from "@/components/education/Education";
+import Experiences from "@/components/experiences/Experience";
+import Hire from "@/components/home/Hire";
+import { DownloadIcon, MessagesIcon } from "@/components/icons/Icons";
+import Projects from "@/components/projects/Projects";
+import Skills from "@/components/skills/Skills";
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className=" text-dark 
+     w-full dark:bg-dark">
+      <TransitionEffect />
+      <Layout className="pt-0 h-[70vh] flex items-center dark:text-light lg:flex-col !md:p-0">
+        <div className="md:w-full md:mb-6 md:mt-4">
+          <img src={"assets/identity-picture.png"} className="w-auto md:mx-auto" alt="Profile de ADANDE Appolinaire" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="w-1/2 flex flex-col items-stretch  justify-center h-fit lg:w-full ml-[10%] md:ml-0">
+          <AnimatedText text="Problème. Code.Impact." className="text-6xl! text-left dark:text-light xl:text-5xl! lg:text-center! sm:text-3xl! lg:align-center" />
+
+          <div className="my-4 text-base font-medium lg:text-center">
+            <p>
+              J’accompagne les entreprises dans leur croissance en concevant des applications web rapides et fiables.
+            </p>
+            <p className="mt-4 sm:hidden">
+              Vous avez un projet ambitieux à concrétiser ? Discutons-en.
+            </p>
+          </div>
+
+          <div className="flex gap-5 items-center justify-start lg:justify-center sm:flex-wrap">
+            <a
+              href={`/resume.pdf`}
+              target="_blank"
+              download="CV_ADANDE_Appolinaire.pdf"
+              rel="noopener noreferrer"
+              className="bg-dark text-light px-4 py-3 hover:bg-white hover:border-dark hover:text-dark border border-dark rounded-[15px] font-bold transition duration-200 flex gap-2 items-center dark:bg-light dark:text-dark md:text-sm"
+            >
+              <DownloadIcon className="" />
+              Télécharger mon CV
+            </a>
+
+            <a
+              href="mailto:appolinaire.dev@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative px-4 py-3 bg-gray-100 text-lg font-medium capitalize underline flex items-center gap-2 rounded-[15px] cursor-pointer hover:bg-gray-300 transition dark:text-dark"
+            >
+              <MessagesIcon className="w-5 h-5" />
+              Discutons
+            </a>
+          </div>
         </div>
-      </main>
-    </div>
-  );
+
+        <Hire />
+      </Layout>
+
+      <Layout className="mt-[100px] md:mt-[150px]">
+        <div className=""> <Skills /></div>
+
+        <Experiences />
+      </Layout>
+
+      <Projects title="Projets" />
+
+      <Layout>
+        <Education />
+      </Layout>
+    </main >
+  )
 }
+
+export default Home;
