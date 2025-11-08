@@ -1,10 +1,11 @@
 services:
   frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
     command: sh -c "npm install && npm run dev"
-    volumes:
-      - ./:/app
     environment:
       NODE_ENV: development
+    user: "node"
+    volumes:
+      - .:/app              # ton code local pour hot reload
+      - /app/node_modules   # volume anonyme pour node_modules
+    ports:
+      - "3003:3000"
