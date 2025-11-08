@@ -1,0 +1,10 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sh -c "npm install && npm run dev"
+    volumes:
+      - ./:/app
+    environment:
+      NODE_ENV: development

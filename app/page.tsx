@@ -15,7 +15,7 @@ const Home = () => {
       <TransitionEffect />
       <Layout className="pt-0 h-[70vh] flex items-center dark:text-light lg:flex-col !md:p-0">
         <div className="md:w-full md:mb-6 md:mt-4">
-          <img src={"assets/identity-picture.png"} className="w-auto md:mx-auto" alt="Profile de ADANDE Appolinaire" />
+          <img src={"/assets/identity-picture.png"} className="w-auto md:mx-auto" alt="Profile de ADANDE Appolinaire" />
         </div>
 
         <div className="w-1/2 flex flex-col items-stretch  justify-center h-fit lg:w-full ml-[10%] md:ml-0">

@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'standalone',
+  
+  // Disable telemetry in production
+  ...(process.env.NODE_ENV === 'production' && {
+    compiler: {
+      removeConsole: true,
+    },
+  }),
 };
 
 export default nextConfig;
