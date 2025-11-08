@@ -6,7 +6,7 @@ services:
     container_name: nextjs-frontend
     restart: always
     ports:
-      - "3002:3000"
+      - "3003:3000"
     environment:
       NODE_ENV: production
       PORT: 3000

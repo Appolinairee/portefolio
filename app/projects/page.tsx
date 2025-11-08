@@ -118,7 +118,7 @@ const Projects = ({ title }: { title?: string; }) => {
                             type="NextJs & Laravel API"
                             title="Conforthi - Marketplace Mobilier"
                             summary="Marketplace de meubles au Bénin, permettant à plusieurs vendeurs de proposer leurs produits avec des fonctionnalités sociales (liker, commenter, partager)."
-                            img="/projects/conforthi.png"
+                            img="/assets/projects/conforthi.png"
                             link="https://conforthi.com"
                         />
                     </div>
@@ -127,7 +127,7 @@ const Projects = ({ title }: { title?: string; }) => {
                         <Project
                             type="ReactJS & Laravel API"
                             title="NetBoxTV"
-                            img="/NetBox.png"
+                            img="/assets/NetBox.png"
                             github="https://github.com/Appolinairee/net_box_tv"
                             link="https://github.com/Appolinairee/net_box_tv"
                         />
@@ -137,7 +137,7 @@ const Projects = ({ title }: { title?: string; }) => {
                         <Project
                             type="JavaScript && CSS native"
                             title="Divisma Ecommerce site"
-                            img="/divisima.png"
+                            img="/assets/divisima.png"
                             github="https://github.com/Appolinairee/divisima"
                             link="https://appolinairee.github.io/divisima/"
                         />
@@ -148,7 +148,7 @@ const Projects = ({ title }: { title?: string; }) => {
                             type="JavaScript POO & Mithril"
                             title="Module de Calendrier"
                             summary="Module de calendrier en JavaScript, conçu pour être intégré dans diverses applications. Offre des fonctionnalités similaires à Google Calendar avec une personnalisation facile pour les développeurs."
-                            img="/projects/calendar.png"
+                            img="/assets/projects/calendar.png"
                             github="https://github.com/Appolinairee/Calendar"
                             link="https://github.com/Appolinairee/Calendar"
                         />
@@ -158,7 +158,7 @@ const Projects = ({ title }: { title?: string; }) => {
                         <Project
                             type="Développeur Frontend"
                             title="Alitcha Community"
-                            img="/projects/alitcha.png"
+                            img="/assets/projects/alitcha.png"
                             github="https://github.com/Appolinairee/alitchaWebsite"
                             link="https://alitchateam.com/"
                         />
@@ -168,7 +168,7 @@ const Projects = ({ title }: { title?: string; }) => {
                         <Project
                             type="JavaScript"
                             title="DataSchool."
-                            img="/dataSchool.png"
+                            img="/assets/dataSchool.png"
                             github="https://github.com/Appolinairee/Data-School-23/"
                             link="https://appolinairee.github.io/Data-School-23/"
                         />

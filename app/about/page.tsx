@@ -59,7 +59,7 @@ const About = () => {
 
                 <div className="col-span-4 border-dark bg-light dark:bg-dark relative border p-2 h-full flex items-center dark:rounded-3xl xl:col-span-5 md:col-span-9 md:order-1">
                     <div className="w-100% bg-red rounded-2xl shadow-dark shadow-1xl hover:shadow-lg dark:shadow-light  transition-shadow ease duration-100 py-2 cursor-pointer md:relative">
-                        <img className="h-full w-auto" src="/identity-picture.png" alt="ADANDE Appolinaire" />
+                        <img className="h-full w-auto" src="/assets/identity-picture.png" alt="ADANDE Appolinaire" />
                     </div>
                 </div>
 

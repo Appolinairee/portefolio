@@ -97,11 +97,11 @@ const Articles = () => {
 
                 <ul className="grid grid-cols-4 gap-10 mb-32 lg:gap-8 md:grid-cols-1 md:gap-y-14">
                     <div className="col-span-2">
-                        <FeaturedArticle title="Développeur et Entrepreneur, Le Duo Gagnant dans le Monde des Affaires" img="/Family Values - In Company.png" summary="Dans le monde dynamique des affaires d'aujourd'hui, la synergie entre le rôle de développeur et celui d'entrepreneur est devenue un atout majeur. Cet article explore de manière approfondie comment la fusion de ces deux compétences distinctes, le développement informatique et l'entrepreneuriat..." time="9 min read, à suivre bientôt" link="#" />
+                        <FeaturedArticle title="Développeur et Entrepreneur, Le Duo Gagnant dans le Monde des Affaires" img="/assets/Family Values - In Company.png" summary="Dans le monde dynamique des affaires d'aujourd'hui, la synergie entre le rôle de développeur et celui d'entrepreneur est devenue un atout majeur. Cet article explore de manière approfondie comment la fusion de ces deux compétences distinctes, le développement informatique et l'entrepreneuriat..." time="9 min read, à suivre bientôt" link="#" />
                     </div>
 
                     <div className=" col-span-2">
-                        <FeaturedArticle title="Laravel : Optimiser le Code pour Aller au-delà du Simple Fonctionnement" img="/laravel.jpeg" summary="Laravel, avec sa syntaxe élégante et ses fonctionnalités puissantes, est devenu un choix privilégié pour de nombreux développeurs. Cependant, l'optimisation du code va bien au-delà de la simple exécution des fonctionnalités de base. Cet article plonge dans l'art de maximiser les performances..." time="9 min read, à suivre bientôt" link="#" />
+                        <FeaturedArticle title="Laravel : Optimiser le Code pour Aller au-delà du Simple Fonctionnement" img="/assets/laravel.jpeg" summary="Laravel, avec sa syntaxe élégante et ses fonctionnalités puissantes, est devenu un choix privilégié pour de nombreux développeurs. Cependant, l'optimisation du code va bien au-delà de la simple exécution des fonctionnalités de base. Cet article plonge dans l'art de maximiser les performances..." time="9 min read, à suivre bientôt" link="#" />
                     </div>
                 </ul>
 
@@ -109,13 +109,13 @@ const Articles = () => {
                     <h2 className="text-5xl font-bold mb-10 dark:text-light">All Articles</h2>
 
                     <ul className="w-full dark:text-light">
-                        <Article img="/Family Values - In Company.png" title="Manssah : Un rêve d'enfance sur lequel les aînés travaillent déjà?" date="12 Février 2024" link="#" />
-                        <Article img="/Family Values - In Company.png" title="Lean Startup et Build In Public : Les Outils de l'Odyssée Entrepreneuriale." date="12 Mars 2024" link="#" />
-                        <Article img="/Family Values - In Company.png" title="ReactJS : Construire des Interfaces Utilisateur Dynamiques et Réactives" date="12 Mai 2024" link="#" />
+                        <Article img="/assets/Family Values - In Company.png" title="Manssah : Un rêve d'enfance sur lequel les aînés travaillent déjà?" date="12 Février 2024" link="#" />
+                        <Article img="/assets/Family Values - In Company.png" title="Lean Startup et Build In Public : Les Outils de l'Odyssée Entrepreneuriale." date="12 Mars 2024" link="#" />
+                        <Article img="/assets/Family Values - In Company.png" title="ReactJS : Construire des Interfaces Utilisateur Dynamiques et Réactives" date="12 Mai 2024" link="#" />
 
-                        <Article img="/Family Values - In Company.png" title="Équilibre Spirituel : Naviguer entre Humilité et Confiance en Soi." date="12 Avril 2024" link="#" />
+                        <Article img="/assets/Family Values - In Company.png" title="Équilibre Spirituel : Naviguer entre Humilité et Confiance en Soi." date="12 Avril 2024" link="#" />
 
-                        <Article img="/Family Values - In Company.png" title="Maîtriser le Développement Web avec TDD : Guide Complet." date="12 Juin 2024" link="#" />
+                        <Article img="/assets/Family Values - In Company.png" title="Maîtriser le Développement Web avec TDD : Guide Complet." date="12 Juin 2024" link="#" />
                     </ul>
 
                 </div>
