@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import useThemeSwitcher from "./useThemeSwitcher";
 import { GithubIcon, LinkedInIcon, MailIcon, MoonIcon, SunIcon, WhatsappIcon }  from "../icons/Icons";
 
@@ -29,6 +30,11 @@ const socialLinks = [
 
 const SocialIcons = ({ isNavbar = false, className }: { isNavbar?: boolean, className?: string }) => {
     const [mode, setMode] = useThemeSwitcher();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     return (
         <div className={`flex justify-center items-center gap-5 flex-wrap ${className}`}>
@@ -54,7 +60,13 @@ const SocialIcons = ({ isNavbar = false, className }: { isNavbar?: boolean, clas
                 whileTap={{ scale: 0.95 }}
                 aria-label="Toggle Theme"
             >
-                {mode === "dark" ? <SunIcon className={isNavbar ? "fill-white" : "fill-dark"} /> : <MoonIcon className={isNavbar ? "fill-dark" : "fill-white"} />}
+                {!mounted ? (
+                    <div className="w-5 h-5" />
+                ) : mode === "dark" ? (
+                    <SunIcon className={isNavbar ? "fill-white" : "fill-dark"} />
+                ) : (
+                    <MoonIcon className={isNavbar ? "fill-dark" : "fill-white"} />
+                )}
             </motion.button>
         </div>
     );

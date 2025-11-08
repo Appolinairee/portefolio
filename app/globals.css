@@ -1,25 +1,52 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-montserrat);
-}
+  /* Colors */
+  --color-dark: #1b1b1b;
+  --color-light: #ffffff;
+  --color-primary: #B63E96;
+  --color-primaryDark: #58E6D9;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Font */
+  --font-sans: var(--font-montserrat);
+
+  /* Animations */
+  --animate-spin-slow: spin 8s linear infinite;
+
+  /* Background Images - Circular patterns */
+  --background-image-circularBackground: repeating-radial-gradient(rgba(0, 0, 0, 0.4) 2px, #f5f5f5 5px, #f5f5f5 100px);
+  --background-image-circularBackgroundLight: repeating-radial-gradient(rgba(225, 225, 255, 0.5) 2px, #1b1b1b 5px, #1b1b1b 100px);
+  --background-image-circularBackgroundLg: repeating-radial-gradient(rgba(0, 0, 0, 0.4) 2px, #f5f5f5 5px, #f5f5f5 80px);
+  --background-image-circularBackgroundLightLg: repeating-radial-gradient(rgba(225, 225, 255, 0.5) 2px, #1b1b1b 5px, #1b1b1b 80px);
+  --background-image-circularBackgroundMd: repeating-radial-gradient(rgba(0, 0, 0, 0.4) 2px, #f5f5f5 5px, #f5f5f5 60px);
+  --background-image-circularBackgroundLightMd: repeating-radial-gradient(rgba(225, 225, 255, 0.5) 2px, #1b1b1b 5px, #1b1b1b 60px);
+  --background-image-circularBackgroundSm: repeating-radial-gradient(rgba(0, 0, 0, 0.4) 2px, #f5f5f5 4px, #f5f5f5 40px);
+  --background-image-circularBackgroundLightSm: repeating-radial-gradient(rgba(225, 225, 255, 0.5) 2px, #1b1b1b 4px, #1b1b1b 40px);
+
+  /* Breakpoints - Max-width (non mobile-first) */
+  --breakpoint-2xl: 1535px;
+  --breakpoint-xl: 1279px;
+  --breakpoint-lg: 1023px;
+  --breakpoint-md: 767px;
+  --breakpoint-sm: 639px;
+  --breakpoint-xs: 479px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-light);
+  color: var(--color-dark);
+  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
 }
+
+.dark body {
+  background: var(--color-dark);
+  color: var(--color-light);
+}
+
+/* Custom breakpoints avec max-width */
+@custom-media --2xl (max-width: 1535px);
+@custom-media --xl (max-width: 1279px);
+@custom-media --lg (max-width: 1023px);
+@custom-media --md (max-width: 767px);
+@custom-media --sm (max-width: 639px);
+@custom-media --xs (max-width: 479px);
