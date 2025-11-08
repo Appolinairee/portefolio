@@ -1,3 +1,5 @@
+"use client";
+
 import { useScroll, motion } from "framer-motion";
 import { useRef } from "react";
 import LiIcon from "../experiences/LiIcon";
