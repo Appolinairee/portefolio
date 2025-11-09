@@ -13,20 +13,23 @@ const Home = () => {
     <main className=" text-dark 
      w-full dark:bg-dark">
       <TransitionEffect />
-      <Layout className="pt-0 h-[70vh] flex! items-center dark:text-light max-lg:flex-col !max-md:p-0">
+      <Layout className="pt-0 h-[80vh] max-md:h-[70vh] flex! items-center dark:text-light max-lg:flex-col !max-md:p-0">
         <div className="max-md:w-full max-md:mb-6 max-md:mt-4">
           <img src={"/assets/profil.png"} className="w-auto max-md:mx-auto" alt="Profile de ADANDE Appolinaire" />
         </div>
 
         <div className="w-1/2 flex flex-col items-stretch  justify-center h-fit max-lg:w-full ml-[10%] max-md:ml-0">
-          <AnimatedText text="Problème. Code.Impact." className="text-6xl! text-left dark:text-light max-xl:text-5xl! max-lg:text-center! max-sm:text-3xl! max-lg:align-center" />
+          <AnimatedText text="Dev Fullstack. Architecture. DevOps." className="text-6xl! text-left dark:text-light max-xl:text-5xl! max-lg:text-center! max-sm:text-3xl! max-lg:align-center" />
 
           <div className="my-4 text-base font-medium max-lg:text-center">
-            <p>
-              J’accompagne les entreprises dans leur croissance en concevant des applications web rapides et fiables.
+            <p className="text-lg">
+              <span className="font-semibold text-primary">Lead Technique</span> spécialisé en <span className="font-semibold">Next.js/React</span>, <span className="font-semibold">NestJS/Node.js</span> et <span className="font-semibold">DevOps</span>.
             </p>
-            <p className="mt-4 max-sm:hidden">
-              Vous avez un projet ambitieux à concrétiser ? Discutons-en.
+            <p className="mt-3">
+              J'architecture et déploie des <span className="font-semibold">plateformes web scalables</span> avec CI/CD, Docker et optimisation continue.
+            </p>
+            <p className="mt-3 max-sm:hidden">
+              Disponible pour des <span className="font-semibold text-primary">missions freelance</span> ou <span className="font-semibold text-primary">poste Lead/Senior</span> en deep tech.
             </p>
           </div>
 
