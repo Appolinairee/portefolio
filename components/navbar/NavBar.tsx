@@ -50,7 +50,7 @@ const NavBar = () => {
         <div className="flex flex-nowrap gap-4 max-lg:flex-col max-lg:justify-center max-lg:hidden">
           <CustomLink href="/" title="Accueil" className="" />
           <CustomLink href="/about" title="à propos" className="" />
-          <CustomLink href="/projets" title="Projets" className="" />
+          <CustomLink href="/projects" title="Projets" className="" />
           <CustomLink href="/articles" title="Articles" className="" />
         </div>
 
@@ -70,7 +70,7 @@ const NavBar = () => {
             <div className="flex flex-col items-center gap-6 justify-center text-light dark:text-dark mb-8 w-full">
               <CustomMobileLink href="/" title="Home" toggle={handleBar}  />
               <CustomMobileLink href="/about" title="à propos" toggle={handleBar} />
-              <CustomMobileLink href="/projets" title="Projets" toggle={handleBar} />
+              <CustomMobileLink href="/projects" title="Projets" toggle={handleBar} />
               <CustomMobileLink href="/articles" title="Articles" toggle={handleBar} />
             </div>
 

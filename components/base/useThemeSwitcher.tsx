@@ -8,10 +8,13 @@ const useThemeSwitcher = (): [string, React.Dispatch<React.SetStateAction<string
         const savedTheme = localStorage.getItem("theme");
         const initialMode = savedTheme || "light";
         
-        if (initialMode === "dark") {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
+        const htmlElement = document.querySelector("html");
+        if (htmlElement) {
+            if (initialMode === "dark") {
+                htmlElement.classList.add("dark");
+            } else {
+                htmlElement.classList.remove("dark");
+            }
         }
         
         setMode(initialMode);
@@ -23,10 +26,18 @@ const useThemeSwitcher = (): [string, React.Dispatch<React.SetStateAction<string
             console.log("Changing theme to:", mode);
             localStorage.setItem("theme", mode);
             
-            if (mode === "dark") {
-                document.documentElement.classList.add("dark");
-            } else {
-                document.documentElement.classList.remove("dark");
+            const htmlElement = document.querySelector("html");
+            console.log("HTML Element:", htmlElement);
+            console.log("Current classes:", htmlElement?.className);
+            
+            if (htmlElement) {
+                if (mode === "dark") {
+                    htmlElement.classList.add("dark");
+                    console.log("Added dark class. Classes:", htmlElement.className);
+                } else {
+                    htmlElement.classList.remove("dark");
+                    console.log("Removed dark class. Classes:", htmlElement.className);
+                }
             }
         }
     }, [mode]);

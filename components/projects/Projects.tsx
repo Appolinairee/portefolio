@@ -99,7 +99,7 @@ const Project = ({ type, title, img, github, link }: { type: string; title: stri
   );
 };
 
-const Projects = ({ title }: { title: string; }) => {
+const Projects = ({ title }: { title?: string; }) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <TransitionEffect />
@@ -108,7 +108,7 @@ const Projects = ({ title }: { title: string; }) => {
 
         <AnimatedText
           text={title || "Au delà de la théorie: l'expérience"}
-          className="text-7xl! mb-10 max-sm:text-6xl! max-xs:!text-4xl"
+          className="text-7xl! mb-10 max-sm:text-6xl! max-xs:text-4xl!"
         />
 
         <div className="w-fit grid grid-cols-12 max-sm:flex max-sm:flex-col gap-24 xl:gap-x-16 max-md:gap-x-10 max-md:gap-y-20">
