@@ -39,7 +39,7 @@ const NavBar = () => {
   }
 
   return (
-    <nav className={`px-32 py-8 font-medium bg-light w-full flex items-center justify-between relative dark:bg-dark dark:text-light max-lg:px-16 max-md:px-12 max-sm:px-8 max-md:py-6`}>
+    <nav className={`px-32 py-8 font-medium bg-light w-full flex items-center justify-between relative dark:bg-dark dark:text-light max-lg:px-16 max-md:px-12 max-sm:px-8 max-md:py-3`}>
       <button className="flex-col items-center justify-center hidden max-lg:flex" onClick={handleBar}>
         <span className={`bg-dark transition-all ease-out duration-300 dark:bg-light rounded-sm block h-0.5 w-6 ${isOpen ? 'rotate-45 translate-y-1' : 'rotate-0 -translate-y-0.5'}`}></span>
         <span className={`bg-dark transition-all ease-out duration-300 my-0.5 dark:bg-light rounded-sm block h-0.5 w-6 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>

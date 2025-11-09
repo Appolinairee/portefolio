@@ -13,8 +13,8 @@ const Home = () => {
     <main className=" text-dark 
      w-full dark:bg-dark">
       <TransitionEffect />
-      <Layout className="pt-0 h-[80vh] max-md:h-[70vh] flex! items-center dark:text-light max-lg:flex-col !max-md:p-0">
-        <div className="max-md:w-full max-md:mb-6 max-md:mt-4">
+      <Layout className="pt-0 h-[80vh] max-md:h-full flex! items-center dark:text-light max-lg:flex-col max-md:py-2! max-md:px-6!">
+        <div className="max-md:w-full max-md:mb-0 max-md:mt-0">
           <img src={"/assets/profil.png"} className="w-auto max-md:mx-auto" alt="Profile de ADANDE Appolinaire" />
         </div>
 
@@ -25,7 +25,7 @@ const Home = () => {
             <p className="text-lg">
               <span className="font-semibold text-primary">Lead Technique</span> spécialisé en <span className="font-semibold">Next.js/React</span>, <span className="font-semibold">NestJS/Node.js</span> et <span className="font-semibold">DevOps</span>.
             </p>
-            <p className="mt-3">
+            <p className="mt-3 max-xl:hidden">
               J'architecture et déploie des <span className="font-semibold">plateformes web scalables</span> avec CI/CD, Docker et optimisation continue.
             </p>
             <p className="mt-3 max-sm:hidden">
@@ -60,10 +60,12 @@ const Home = () => {
         <Hire />
       </Layout>
 
-      <Layout className="mt-[100px] max-md:mt-[150px]">
+      <Layout className="mt-[100px] max-md:mt-0 max-md:px-0!">
         <div className=""> <Skills /></div>
 
-        <Experiences />
+        <Layout className="py-0!">
+          <Experiences /> 
+        </Layout>
       </Layout>
 
       <Projects title="Projets" />

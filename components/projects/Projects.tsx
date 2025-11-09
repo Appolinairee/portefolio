@@ -104,14 +104,14 @@ const Projects = ({ title }: { title?: string; }) => {
     <div className="flex flex-col justify-center items-center">
       <TransitionEffect />
 
-      <Layout className="py-16">
+      <Layout className="py-16 max-md:px-4!">
 
         <AnimatedText
           text={title || "Au delà de la théorie: l'expérience"}
           className="text-7xl! mb-10 max-sm:text-6xl! max-xs:text-4xl!"
         />
 
-        <div className="w-fit grid grid-cols-12 max-sm:flex max-sm:flex-col gap-24 xl:gap-x-16 max-md:gap-x-10 max-md:gap-y-20">
+        <div className="w-fit max-md:w-full grid grid-cols-12 max-sm:flex max-sm:flex-col gap-24 xl:gap-x-16 max-md:gap-x-10 max-md:gap-y-20">
 
           <div className="col-span-12">
             <FeaturedProject

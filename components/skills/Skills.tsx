@@ -23,7 +23,7 @@ const Skills = () => {
   return (
     <>
       <h2 className="font-bold w-full text-8xl text-center dark:text-light max-md:text-6xl max-xs:text-5xl">Skills</h2>
-      <div className="w-full bg-circularBackground rounded-full flex items-center justify-center h-screen border-dark dark:bg-circularBackgroundLight max-lg:h-[8Ovh] max-md:h-[60vh] max-xs:h-[50vh] max-lg:dark:bg-circularBackgroundLightLg max-lg:bg-circularBackgroundLg max-md:bg-circularBackgroundMd max-md:dark:bg-circularBackgroundLightMd max-sm:bg-circularBackgroundSm max-sm:dark:bg-circularBackgroundLightSm">
+      <div className="w-full bg-circularBackground rounded-full flex items-center justify-center h-screen border-dark dark:bg-circularBackgroundLight max-lg:h-[8Ovh] max-md:h-[60vh] max-xs:h-[60vh] max-lg:dark:bg-circularBackgroundLightLg max-lg:bg-circularBackgroundLg max-md:bg-circularBackgroundMd max-md:dark:bg-circularBackgroundLightMd max-sm:bg-circularBackgroundSm max-sm:dark:bg-circularBackgroundLightSm">
         <motion.div className="flex relative items-center justify-center rounded-full p-8 bg-dark text-white font-semibold shadow-2 cursor-pointer dark:bg-light dark:text-dark max-lg:p-6 max-md:p-4 max-xs:p-2 max-xs:text-xs"
           whileHover={{ scale: 1.06 }}
         >Web</motion.div>
