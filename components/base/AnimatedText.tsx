@@ -31,7 +31,7 @@ const singleWord = {
 
 const AnimatedText = ({ text, className }: { text: string; className?: string }) => {
   return (
-    <div className="w-full mx-auto flex items-center justify-center text-center overflow-hidden sm:py-0">
+    <div className="w-full mx-auto flex items-center justify-center text-center overflow-hidden max-sm:py-0">
       <motion.h1 className={`${className} text-dark capitalize text-8xl inline-block font-bold dark:text-light`} variants={quote}>
         {
           text.split(" ").map((word, index) =>

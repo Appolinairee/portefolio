@@ -44,7 +44,7 @@ const SocialIcons = ({ isNavbar = false, className }: { isNavbar?: boolean, clas
                     href={href}
                     target="_blank"
                     aria-label={label}
-                    className={isNavbar ? "w-5 lg:hidden" : "w-5"}
+                    className={isNavbar ? "w-5 max-lg:hidden" : "w-5"}
                     whileHover={{ scale: 1.2, rotate: 3 }}
                     whileTap={{ scale: 0.9 }}
                     transition={{ type: "spring", stiffness: 300 }}

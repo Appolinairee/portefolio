@@ -13,30 +13,30 @@ const Home = () => {
     <main className=" text-dark 
      w-full dark:bg-dark">
       <TransitionEffect />
-      <Layout className="pt-0 h-[70vh] flex items-center dark:text-light lg:flex-col !md:p-0">
-        <div className="md:w-full md:mb-6 md:mt-4">
-          <img src={"/assets/identity-picture.png"} className="w-auto md:mx-auto" alt="Profile de ADANDE Appolinaire" />
+      <Layout className="pt-0 h-[70vh] flex! items-center dark:text-light max-lg:flex-col !max-md:p-0">
+        <div className="max-md:w-full max-md:mb-6 max-md:mt-4">
+          <img src={"/assets/profil.png"} className="w-auto max-md:mx-auto" alt="Profile de ADANDE Appolinaire" />
         </div>
 
-        <div className="w-1/2 flex flex-col items-stretch  justify-center h-fit lg:w-full ml-[10%] md:ml-0">
-          <AnimatedText text="Problème. Code.Impact." className="text-6xl! text-left dark:text-light xl:text-5xl! lg:text-center! sm:text-3xl! lg:align-center" />
+        <div className="w-1/2 flex flex-col items-stretch  justify-center h-fit max-lg:w-full ml-[10%] max-md:ml-0">
+          <AnimatedText text="Problème. Code.Impact." className="text-6xl! text-left dark:text-light max-xl:text-5xl! max-lg:text-center! max-sm:text-3xl! max-lg:align-center" />
 
-          <div className="my-4 text-base font-medium lg:text-center">
+          <div className="my-4 text-base font-medium max-lg:text-center">
             <p>
               J’accompagne les entreprises dans leur croissance en concevant des applications web rapides et fiables.
             </p>
-            <p className="mt-4 sm:hidden">
+            <p className="mt-4 max-sm:hidden">
               Vous avez un projet ambitieux à concrétiser ? Discutons-en.
             </p>
           </div>
 
-          <div className="flex gap-5 items-center justify-start lg:justify-center sm:flex-wrap">
+          <div className="flex gap-5 items-center justify-start max-lg:justify-center max-sm:flex-wrap">
             <a
               href={`/resume.pdf`}
               target="_blank"
               download="CV_ADANDE_Appolinaire.pdf"
               rel="noopener noreferrer"
-              className="bg-dark text-light px-4 py-3 hover:bg-white hover:border-dark hover:text-dark border border-dark rounded-[15px] font-bold transition duration-200 flex gap-2 items-center dark:bg-light dark:text-dark md:text-sm"
+              className="bg-dark text-light px-4 py-3 hover:bg-white hover:border-dark hover:text-dark border border-dark rounded-[15px] font-bold transition duration-200 flex gap-2 items-center dark:bg-light dark:text-dark max-md:text-sm"
             >
               <DownloadIcon className="" />
               Télécharger mon CV
@@ -57,7 +57,7 @@ const Home = () => {
         <Hire />
       </Layout>
 
-      <Layout className="mt-[100px] md:mt-[150px]">
+      <Layout className="mt-[100px] max-md:mt-[150px]">
         <div className=""> <Skills /></div>
 
         <Experiences />

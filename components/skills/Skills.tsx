@@ -6,7 +6,7 @@ import { AdvancedBadge } from "../icons/Icons";
 const Skill = ({ name, x, y, level }: { name: string; x: string; y: string; level?: string }) => {
   return (
     <motion.div
-      className="flex items-center justify-center rounded-full px-4 py-2 bg-dark text-white font-semibold shadow-2 cursor-pointer absolute shadow-dark dark:bg-light dark:text-dark sm:px-[9px] sm:py-1 sm:text-[13px]"
+      className="flex items-center justify-center rounded-full px-4 py-2 bg-dark text-white font-semibold shadow-2 cursor-pointer absolute shadow-dark dark:bg-light dark:text-dark max-sm:px-[9px] max-sm:py-1 max-sm:text-[13px]"
       whileHover={{ scale: 1.05 }}
       initial={{ x: 0, y: 0 }}
       whileInView={{ x: x, y: y }}
@@ -22,9 +22,9 @@ const Skill = ({ name, x, y, level }: { name: string; x: string; y: string; leve
 const Skills = () => {
   return (
     <>
-      <h2 className="font-bold w-full text-8xl text-center dark:text-light md:text-6xl xs:text-5xl">Skills</h2>
-      <div className="w-full bg-circularBackground rounded-full flex items-center justify-center h-screen border-dark dark:bg-circularBackgroundLight lg:h-[8Ovh] md:h-[60vh] xs:h-[50vh] lg:dark:bg-circularBackgroundLightLg lg:bg-circularBackgroundLg md:bg-circularBackgroundMd md:dark:bg-circularBackgroundLightMd sm:bg-circularBackgroundSm sm:dark:bg-circularBackgroundLightSm">
-        <motion.div className="flex relative items-center justify-center rounded-full p-8 bg-dark text-white font-semibold shadow-2 cursor-pointer dark:bg-light dark:text-dark lg:p-6 md:p-4 xs:p-2 xs:text-xs"
+      <h2 className="font-bold w-full text-8xl text-center dark:text-light max-md:text-6xl max-xs:text-5xl">Skills</h2>
+      <div className="w-full bg-circularBackground rounded-full flex items-center justify-center h-screen border-dark dark:bg-circularBackgroundLight max-lg:h-[8Ovh] max-md:h-[60vh] max-xs:h-[50vh] max-lg:dark:bg-circularBackgroundLightLg max-lg:bg-circularBackgroundLg max-md:bg-circularBackgroundMd max-md:dark:bg-circularBackgroundLightMd max-sm:bg-circularBackgroundSm max-sm:dark:bg-circularBackgroundLightSm">
+        <motion.div className="flex relative items-center justify-center rounded-full p-8 bg-dark text-white font-semibold shadow-2 cursor-pointer dark:bg-light dark:text-dark max-lg:p-6 max-md:p-4 max-xs:p-2 max-xs:text-xs"
           whileHover={{ scale: 1.06 }}
         >Web</motion.div>
 

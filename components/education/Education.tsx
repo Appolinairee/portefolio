@@ -7,7 +7,7 @@ import LiIcon from "../experiences/LiIcon";
 const Details = ({ type, time, place, info } : { type: string; time: string; place: string; info: string; }) => {
   const ref = useRef(null);
 
-  return <li ref={ref} className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col justify-between text-left  lg:w-[80%] ">
+  return <li ref={ref} className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col justify-between text-left  max-lg:w-[80%] ">
     <LiIcon reference={ref} />
 
     <motion.div
@@ -15,13 +15,13 @@ const Details = ({ type, time, place, info } : { type: string; time: string; pla
       whileInView={{ y: 0 }}
       transition={{ duration: 1, type: "spring" }}
     >
-      <h3 className="font-bold capitalize text-2xl sm:text-xl xs:text-lg">  {type} </h3>
+      <h3 className="font-bold capitalize text-2xl max-sm:text-xl max-xs:text-lg">  {type} </h3>
 
-      <span className="capitalize font-medium text-dark/75  dark:text-light/75 xs:text-base">
+      <span className="capitalize font-medium text-dark/75  dark:text-light/75 max-xs:text-base">
         {time} | <span className="text-primary">@</span>{place}
       </span>
 
-      <p className="font-medium w-full md:text-sm">{info}</p>
+      <p className="font-medium w-full max-md:text-sm">{info}</p>
     </motion.div>
   </li>
 }
@@ -36,9 +36,9 @@ const Education = () => {
 
   return (
     <div className="py-40">
-      <h2 className="font-bold w-full text-8xl text-center mb-20 capitalize dark:text-light sm:text-xl md:text-6xl xs:text-5xl">éducation</h2>
+      <h2 className="font-bold w-full text-8xl text-center mb-20 capitalize dark:text-light max-sm:text-xl max-md:text-6xl max-xs:text-5xl">éducation</h2>
 
-      <div className="w-[75%] relative mx-auto  lg:w-[90%] md:w-full " ref={ref}>
+      <div className="w-[75%] relative mx-auto  max-lg:w-[90%] max-md:w-full " ref={ref}>
 
         <motion.div style={{ scaleY: scrollYProgress }} className="absolute origin-top bg-dark w-[3px] h-full rounded-4 dark:bg-white"></motion.div>
 

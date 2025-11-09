@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Configuration du mode dark manuel avec la classe .dark */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Colors */
   --color-dark: #1b1b1b;
@@ -23,16 +26,24 @@
   --background-image-circularBackgroundSm: repeating-radial-gradient(rgba(0, 0, 0, 0.4) 2px, #f5f5f5 4px, #f5f5f5 40px);
   --background-image-circularBackgroundLightSm: repeating-radial-gradient(rgba(225, 225, 255, 0.5) 2px, #1b1b1b 4px, #1b1b1b 40px);
 
-  /* Breakpoints - Tailwind v4 utilise min-width (mobile-first) par défaut
-     Il n'est PAS possible de configurer des breakpoints max-width natifs
-     Vous devez utiliser les variants max-* dans vos classes: max-md:hidden
+  /* Breakpoints personnalisés - Desktop First (max-width)
+     IMPORTANT: En Tailwind v4, on ne peut PAS changer le comportement par défaut de max-lg:, max-md:, max-sm:
+     Ces variants restent mobile-first (min-width)
+     
+     Pour desktop-first, utilisez les variants max-* qui sont automatiquement générés:
+     - max-2xl: s'applique quand width < 1536px
+     - max-xl: s'applique quand width < 1280px  
+     - max-lg: s'applique quand width < 1024px
+     - max-md: s'applique quand width < 768px
+     - max-sm: s'applique quand width < 640px
+     - max-xs: s'applique quand width < 480px
   */
+  --breakpoint-2xl: 96rem;   /* 1536px */
+  --breakpoint-xl: 80rem;    /* 1280px */
+  --breakpoint-lg: 64rem;    /* 1024px */
+  --breakpoint-md: 48rem;    /* 768px */
+  --breakpoint-sm: 40rem;    /* 640px */
   --breakpoint-xs: 30rem;    /* 480px */
-  --breakpoint-sm: 40rem;    /* 640px - défaut Tailwind */
-  --breakpoint-md: 48rem;    /* 768px - défaut Tailwind */
-  --breakpoint-lg: 64rem;    /* 1024px - défaut Tailwind */
-  --breakpoint-xl: 80rem;    /* 1280px - défaut Tailwind */
-  --breakpoint-2xl: 96rem;   /* 1536px - défaut Tailwind */
 }
 
 body {

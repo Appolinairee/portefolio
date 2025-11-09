@@ -9,7 +9,7 @@ const LiIcon = ({reference} : {reference: React.RefObject<HTMLLIElement | null>}
 
   return (
     <figure className="absolute left-[-35px] translate-y-[-5px] stroke-dark ">
-        <svg  className="-rotate-90 md:rotate-[-67deg] md:w-[60px] md:h-[60px]" width="75" height="75" viewBox="0 0 100 100">
+        <svg  className="-rotate-90 max-md:rotate-[-67deg] max-md:w-[60px] max-md:h-[60px]" width="75" height="75" viewBox="0 0 100 100">
             <circle cx="75" cy="50" r="20" className="stroke-primary  stroke-[1px" />
             <motion.circle 
             style={{pathLength: scrollYProgress}} cx="75" cy="50" r="20" className="stroke-[4px] fill-white dark:stroke-light dark:fill-dark" />
