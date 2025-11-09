@@ -115,30 +115,41 @@ const Projects = ({ title }: { title: string; }) => {
 
           <div className="col-span-12">
             <FeaturedProject
-              type="NextJs & Laravel API"
-              title="Conforthi - Marketplace Mobilier"
-              summary="Marketplace de meubles au Bénin, permettant à plusieurs vendeurs de proposer leurs produits avec des fonctionnalités sociales (liker, commenter, partager)."
-              img="/projects/conforthi.png"
+              type="Next.js & NestJS | Lead Fullstack"
+              title="Shopinxx - Marketplace B2B"
+              summary="Marketplace B2B connectant grossistes, revendeurs et clients finaux. Lead technique de l'équipe : architecture fullstack (Next.js/NestJS), API REST, CI/CD avec Docker, déploiement VPS Linux et optimisation continue de la plateforme."
+              img="/assets/projects/shopinx.png"
               github=""
-              link="https://conforthi.com"
+              link="https://shopinxx.com"
+            />
+          </div>
+
+          <div className="col-span-12">
+            <FeaturedProject
+              type="Next.js & Laravel API"
+              title="Conforthi - Marketplace Mobilier"
+              summary="Marketplace de meubles au Bénin (temporairement hors ligne), permettant à plusieurs vendeurs de proposer leurs produits avec des fonctionnalités sociales (liker, commenter, partager). Architecture fullstack avec Next.js et API Laravel RESTful."
+              img="/assets/projects/conforthi.png"
+              github=""
+              link="#"
             />
           </div>
 
           <div className="col-span-6 max-sm:col-span-12">
             <Project
               type="ReactJS & Laravel API"
-              title="NetBoxTV"
-              img="/NetBox.png"
+              title="NetBoxTV (En développement)"
+              img="/assets/NetBox.png"
               github="https://github.com/Appolinairee/net_box_tv"
-              link="https://github.com/Appolinairee/net_box_tv"
+              link="#"
             />
           </div>
 
           <div className="col-span-6 max-sm:col-span-12">
             <Project
-              type="JavaScript && CSS native"
-              title="Divisma Ecommerce site"
-              img="/divisima.png"
+              type="JavaScript & CSS native"
+              title="Divisima Ecommerce (Démo)"
+              img="/assets/divisima.png"
               github="https://github.com/Appolinairee/divisima"
               link="https://appolinairee.github.io/divisima/"
             />
@@ -149,7 +160,7 @@ const Projects = ({ title }: { title: string; }) => {
               type="JavaScript POO & Mithril"
               title="Module de Calendrier"
               summary="Module de calendrier en JavaScript, conçu pour être intégré dans diverses applications. Offre des fonctionnalités similaires à Google Calendar avec une personnalisation facile pour les développeurs."
-              img="/projects/calendar.png"
+              img="/assets/projects/calendar.png"
               github="https://github.com/Appolinairee/Calendar"
               link="https://github.com/Appolinairee/Calendar"
             />
@@ -159,7 +170,7 @@ const Projects = ({ title }: { title: string; }) => {
             <Project
               type="Développeur Frontend"
               title="Alitcha Community"
-              img="/projects/alitcha.png"
+              img="/assets/projects/alitcha.png"
               github="https://github.com/Appolinairee/alitchaWebsite"
               link="https://alitchateam.com/"
             />
@@ -169,7 +180,7 @@ const Projects = ({ title }: { title: string; }) => {
             <Project
               type="JavaScript"
               title="DataSchool."
-              img="/dataSchool.png"
+              img="/assets/dataSchool.png"
               github="https://github.com/Appolinairee/Data-School-23/"
               link="https://appolinairee.github.io/Data-School-23/"
             />
