@@ -55,9 +55,8 @@ jobs:
             cd ~/portefolio
             git stash
             git pull origin main
-            docker compose pull
             docker compose down
-            docker compose up -d
+            docker compose up -d --pull always --force-recreate
             docker image prune -f
 
       - name: Verify deployment
