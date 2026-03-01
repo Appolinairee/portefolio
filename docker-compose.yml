@@ -5,7 +5,7 @@ services:
     container_name: portefolio
     image: ghcr.io/appolinairee/portefolio:latest
     ports:
-      - "3003:3000"
+      - "3006:3000"
     restart: unless-stopped
     environment:
       NODE_ENV: production
