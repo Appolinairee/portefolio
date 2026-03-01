@@ -9,6 +9,6 @@ RUN npm run build
 FROM node:20-alpine
 WORKDIR /app
 COPY --from=builder /app ./
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 EXPOSE 3000
 CMD ["npm", "start"]
-

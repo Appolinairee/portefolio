@@ -1,11 +1,11 @@
+name: portefolio
+
 services:
   frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
     container_name: portefolio
-    restart: always
+    image: ghcr.io/appolinairee/portefolio:latest
     ports:
       - "3003:3000"
+    restart: unless-stopped
     environment:
       NODE_ENV: production
