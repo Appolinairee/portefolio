@@ -52,6 +52,20 @@ jobs:
           envs: GHCR_PAT
           script: |
             echo "$GHCR_PAT" | docker login ghcr.io -u appolinairee --password-stdin
+            mkdir -p ~/portefolio
+            cat > ~/portefolio/docker-compose.yml << 'EOF'
+            name: portefolio
+
+            services:
+              frontend:
+                container_name: portefolio
+                image: ghcr.io/appolinairee/portefolio:latest
+                ports:
+                  - "3003:3000"
+                restart: unless-stopped
+                environment:
+                  NODE_ENV: production
+            EOF
             cd ~/portefolio
             docker compose pull
             docker compose up -d
