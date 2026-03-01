@@ -55,6 +55,7 @@ jobs:
             cd ~/portefolio
             git pull origin main
             docker compose pull
+            docker compose down
             docker compose up -d
             docker image prune -f
 
@@ -65,11 +66,12 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
+            cd ~/portefolio
             echo "=== Container status ==="
-            docker compose -p portefolio ps
+            docker compose ps
             echo ""
             echo "=== Last 50 log lines ==="
-            docker compose -p portefolio logs --tail=50
+            docker compose logs --tail=50
             echo ""
             echo "=== Health check ==="
             sleep 3
