@@ -53,6 +53,7 @@ jobs:
           script: |
             echo "$GHCR_PAT" | docker login ghcr.io -u appolinairee --password-stdin
             cd ~/portefolio
+            git stash
             git pull origin main
             docker compose pull
             docker compose down
