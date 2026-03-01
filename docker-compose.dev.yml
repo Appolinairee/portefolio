@@ -18,4 +18,4 @@ services:
       - ./postcss.config.mjs:/app/postcss.config.mjs:ro
       - ./eslint.config.mjs:/app/eslint.config.mjs:ro
     ports:
-      - "3003:3000"
+      - "3006:3000"
