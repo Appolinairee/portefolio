@@ -73,6 +73,19 @@ jobs:
             echo "=== Last 50 log lines ==="
             docker compose logs --tail=50
             echo ""
+            echo "=== Security checks ==="
+            CONTAINER=$(docker compose ps -q frontend)
+            PROC_USER=$(docker exec "$CONTAINER" id 2>/dev/null)
+            echo "Process user: $PROC_USER"
+            if echo "$PROC_USER" | grep -q "uid=0"; then
+              echo "❌ SECURITY: container is running as root!"
+              exit 1
+            else
+              echo "✅ Container is running as non-root"
+            fi
+            NEXT_VERSION=$(docker exec "$CONTAINER" cat node_modules/next/package.json | grep '"version"' | head -1 | tr -d ' "version:,')
+            echo "Next.js version in container: $NEXT_VERSION"
+            echo ""
             echo "=== Health check ==="
             sleep 3
             curl -sf http://localhost:3006 > /dev/null && echo "✅ App is responding on port 3006" || echo "❌ App not responding on port 3006"

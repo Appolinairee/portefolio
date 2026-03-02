@@ -19,3 +19,7 @@ services:
       - ./eslint.config.mjs:/app/eslint.config.mjs:ro
     ports:
       - "3006:3000"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL

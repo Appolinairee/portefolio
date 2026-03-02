@@ -9,3 +9,11 @@ services:
     restart: unless-stopped
     environment:
       NODE_ENV: production
+    # Durcissement sécurité (post-CVE-2025-29927)
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    read_only: true
+    tmpfs:
+      - /tmp
