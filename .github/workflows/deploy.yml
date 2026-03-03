@@ -53,12 +53,16 @@ jobs:
           envs: GHCR_TOKEN
           script: |
             echo "$GHCR_TOKEN" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+            if [ ! -d ~/portefolio ]; then
+              git clone https://github.com/${{ github.repository }}.git ~/portefolio
+            fi
             cd ~/portefolio
+            git remote set-url origin https://github.com/${{ github.repository }}.git
             git stash
             git pull origin main
-            docker compose down
+            docker compose down --remove-orphans || true
             docker compose up -d --pull always --force-recreate
-            docker image prune -f
+            docker image prune -f || true
 
       - name: Verify deployment
         uses: appleboy/ssh-action@v1.0.3
