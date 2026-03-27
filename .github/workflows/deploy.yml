@@ -57,7 +57,6 @@ jobs:
               git clone https://github.com/${{ github.repository }}.git ~/portefolio
             fi
             cd ~/portefolio
-            git remote set-url origin https://github.com/${{ github.repository }}.git
             git stash
             git pull origin main
             docker compose down --remove-orphans || true
