@@ -3,7 +3,7 @@ name: portefolio
 services:
   frontend:
     container_name: portefolio
-    image: ghcr.io/appolinairee/portefolio:latest
+    image: ghcr.io/appolinairee/portefolio:2026-03-27
     ports:
       - "3006:3000"
     restart: unless-stopped
