@@ -42,47 +42,6 @@ jobs:
           build-args: |
             NODE_OPTIONS=--max-old-space-size=1024
 
-      - name: Prepare and validate VPS SSH key
-        env:
-          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
-        run: |
-          if [ -z "$VPS_SSH_KEY" ]; then
-            echo "❌ VPS_SSH_KEY is empty"
-            exit 1
-          fi
-          KEY_PATH="$GITHUB_WORKSPACE/.vps_deploy_key"
-          TMP_PATH="$GITHUB_WORKSPACE/.vps_deploy_key.tmp"
-
-          printf '%s' "$VPS_SSH_KEY" | tr -d '\r' > "$TMP_PATH"
-
-          if grep -q "BEGIN OPENSSH PRIVATE KEY" "$TMP_PATH"; then
-            cp "$TMP_PATH" "$KEY_PATH"
-          else
-            printf '%b' "$VPS_SSH_KEY" | tr -d '\r' > "$TMP_PATH"
-            if grep -q "BEGIN OPENSSH PRIVATE KEY" "$TMP_PATH"; then
-              cp "$TMP_PATH" "$KEY_PATH"
-            else
-              printf '%s' "$VPS_SSH_KEY" | tr -d '\r' | base64 -d > "$TMP_PATH" 2>/dev/null || true
-              if grep -q "BEGIN OPENSSH PRIVATE KEY" "$TMP_PATH"; then
-                cp "$TMP_PATH" "$KEY_PATH"
-              else
-                echo "❌ VPS_SSH_KEY format is invalid"
-                echo "Expected one of: raw multiline private key, escaped \\n string, or base64-encoded private key"
-                rm -f "$TMP_PATH" "$KEY_PATH"
-                exit 1
-              fi
-            fi
-          fi
-
-          chmod 600 "$KEY_PATH"
-          if ! ssh-keygen -lf "$KEY_PATH" >/dev/null 2>&1; then
-            echo "❌ VPS_SSH_KEY format is invalid"
-            rm -f "$TMP_PATH" "$KEY_PATH"
-            exit 1
-          fi
-          rm -f "$TMP_PATH"
-          echo "✅ VPS_SSH_KEY format is valid"
-
       - name: Deploy to VPS
         uses: appleboy/ssh-action@v1.0.3
         env:
