@@ -44,7 +44,7 @@ const About = () => {
                     <h3 className="font-bold mb-4 uppercase text-dark/85 text-lg dark:text-light/75">BIOGRAPHIE</h3>
 
                     <p className="my-4 font-medium">
-                        Je suis ADANDE Appolinaire, développeur full-stack avec 3 ans d’expérience. Mon approche est centrée sur le clean code et la rapidité d'exécution.
+                        Je suis ADANDE Appolinaire, développeur full-stack avec 3 ans d’expérience. Mon approche est centrée sur le clean code et la rapidité d&apos;exécution.
                     </p>
 
                     <p className="my-4 font-medium">
@@ -52,7 +52,7 @@ const About = () => {
                     </p>
 
                     <p className="my-4 font-medium">
-                        Passionné par la tech responsable, l’Afrique et l'entrepreneuriat, je m’implique à fond dans chaque projet. Si vous avez un projet web solide ? Parlons-en.
+                        Passionné par la tech responsable, l’Afrique et l&apos;entrepreneuriat, je m’implique à fond dans chaque projet. Si vous avez un projet web solide ? Parlons-en.
                     </p>
                 </div>
 
@@ -82,7 +82,7 @@ const About = () => {
                         <span className="text-6xl font-bold max-md:text-5xl max-xs:text-6xl">
                             <AnimatedNumbers value={3} />+
                         </span>
-                        <h2 className="capitalize text-dark/75 text-[18px] font-medium mt-2 dark:text-light max-sm:text-base max-xs:mt-1">Années d'expérience</h2>
+                        <h2 className="capitalize text-dark/75 text-[18px] font-medium mt-2 dark:text-light max-sm:text-base max-xs:mt-1">Années d&apos;expérience</h2>
                     </div>
                 </div>
             </div>

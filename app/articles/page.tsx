@@ -52,7 +52,7 @@ const MovingImage = ({ title, img, link }: { title: string; img: string; link: s
         }
     }
 
-    function handleLeave(event: React.MouseEvent) {
+    function handleLeave() {
         if (imgRef.current) {
             imgRef.current.style.display = "none";
             x.set(0);

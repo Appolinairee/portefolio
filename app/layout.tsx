@@ -12,9 +12,71 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
+const siteUrl = "https://adandeappolinaire.me";
+
 export const metadata: Metadata = {
-  title: "Appolinaire ADANDE - Portfolio",
-  description: "Portfolio personnel d'Appolinaire Adande - Développeur Full Stack",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Appolinaire ADANDE | Lead Fullstack Next.js, Node.js et DevOps",
+    template: "%s | Appolinaire ADANDE",
+  },
+  description:
+    "Portfolio d'Appolinaire Adande, Lead Fullstack spécialisé en Next.js, React, NestJS, Node.js, architecture web et CI/CD.",
+  keywords: [
+    "Appolinaire Adande",
+    "portfolio développeur",
+    "Next.js",
+    "React",
+    "NestJS",
+    "Node.js",
+    "DevOps",
+    "CI/CD",
+    "développeur fullstack",
+    "lead technique",
+  ],
+  authors: [{ name: "Appolinaire Adande", url: siteUrl }],
+  creator: "Appolinaire Adande",
+  publisher: "Appolinaire Adande",
+  applicationName: "Portfolio Appolinaire Adande",
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: siteUrl,
+    siteName: "Portfolio Appolinaire Adande",
+    title: "Appolinaire ADANDE | Lead Fullstack Next.js, Node.js et DevOps",
+    description:
+      "Portfolio d'Appolinaire Adande, Lead Fullstack spécialisé en Next.js, React, NestJS, Node.js, architecture web et CI/CD.",
+    images: [
+      {
+        url: "/assets/ApolinaireADANDE.png",
+        width: 1200,
+        height: 630,
+        alt: "Portrait d'Appolinaire Adande",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Appolinaire ADANDE | Lead Fullstack Next.js, Node.js et DevOps",
+    description:
+      "Portfolio d'Appolinaire Adande, Lead Fullstack spécialisé en Next.js, React, NestJS, Node.js, architecture web et CI/CD.",
+    images: ["/assets/ApolinaireADANDE.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -29,9 +91,8 @@ export default function RootLayout({
           __html: `
             (function() {
               const theme = localStorage.getItem('theme') || 'light';
-              if (theme === 'dark') {
-                document.documentElement.classList.add('dark');
-              }
+              document.documentElement.classList.remove('light', 'dark');
+              document.documentElement.classList.add(theme === 'dark' ? 'dark' : 'light');
             })();
           `
         }} />

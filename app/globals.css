@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
   /* Colors */
   --color-dark: #1b1b1b;
@@ -51,6 +49,10 @@ body {
   font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
 }
 
+html.light {
+  color-scheme: light;
+}
+
 /* Dark mode styles */
 html.dark body {
   background: var(--color-dark);
@@ -59,4 +61,179 @@ html.dark body {
 
 html.dark {
   color-scheme: dark;
+}
+
+html.dark .dark\:rounded-3xl {
+  border-radius: var(--radius-3xl) !important;
+}
+
+html.dark .dark\:border {
+  border-style: solid !important;
+  border-width: 1px !important;
+}
+
+html.dark .dark\:border-light {
+  border-color: var(--color-light) !important;
+}
+
+html.dark .dark\:bg-dark {
+  background-color: var(--color-dark) !important;
+}
+
+html.dark .dark\:bg-light {
+  background-color: var(--color-light) !important;
+}
+
+html.dark .dark\:bg-light\/90 {
+  background-color: color-mix(in oklab, var(--color-light) 90%, transparent) !important;
+}
+
+html.dark .dark\:bg-white {
+  background-color: var(--color-white) !important;
+}
+
+html.dark .dark\:bg-circularBackgroundLight {
+  background-image: var(--background-image-circularBackgroundLight) !important;
+}
+
+html.dark .dark\:fill-dark {
+  fill: var(--color-dark) !important;
+}
+
+html.dark .dark\:fill-light {
+  fill: var(--color-light) !important;
+}
+
+html.dark .dark\:stroke-light {
+  stroke: var(--color-light) !important;
+}
+
+html.dark .dark\:text-dark {
+  color: var(--color-dark) !important;
+}
+
+html.dark .dark\:text-light {
+  color: var(--color-light) !important;
+}
+
+html.dark .dark\:text-light\/75 {
+  color: color-mix(in oklab, var(--color-light) 75%, transparent) !important;
+}
+
+html.dark .dark\:shadow-light {
+  --tw-shadow-color: var(--color-light) !important;
+}
+
+html.dark .dark\:hover\:border-none:hover {
+  border-style: none !important;
+}
+
+html.dark .dark\:hover\:border-light:hover {
+  border-color: var(--color-light) !important;
+}
+
+html.dark .dark\:hover\:bg-dark:hover {
+  background-color: var(--color-dark) !important;
+}
+
+html.dark .dark\:hover\:text-light:hover {
+  color: var(--color-light) !important;
+}
+
+html.light .dark\:border-light {
+  border-color: var(--color-dark) !important;
+}
+
+html.light .dark\:bg-dark {
+  background-color: var(--color-light) !important;
+}
+
+html.light .dark\:bg-light {
+  background-color: var(--color-dark) !important;
+}
+
+html.light .dark\:bg-light\/90 {
+  background-color: color-mix(in oklab, var(--color-dark) 90%, transparent) !important;
+}
+
+html.light .dark\:bg-white {
+  background-color: var(--color-dark) !important;
+}
+
+html.light .dark\:bg-circularBackgroundLight {
+  background-image: var(--background-image-circularBackground) !important;
+}
+
+html.light .dark\:fill-dark {
+  fill: var(--color-light) !important;
+}
+
+html.light .dark\:fill-light {
+  fill: var(--color-dark) !important;
+}
+
+html.light .dark\:stroke-light {
+  stroke: var(--color-dark) !important;
+}
+
+html.light .dark\:text-dark {
+  color: var(--color-light) !important;
+}
+
+html.light .dark\:text-light {
+  color: var(--color-dark) !important;
+}
+
+html.light .dark\:text-light\/75 {
+  color: color-mix(in oklab, var(--color-dark) 75%, transparent) !important;
+}
+
+html.light .dark\:shadow-light {
+  --tw-shadow-color: var(--color-dark) !important;
+}
+
+html.light .dark\:hover\:border-none:hover {
+  border-style: solid !important;
+}
+
+html.light .dark\:hover\:border-light:hover {
+  border-color: var(--color-dark) !important;
+}
+
+html.light .dark\:hover\:bg-dark:hover {
+  background-color: var(--color-light) !important;
+}
+
+html.light .dark\:hover\:text-light:hover {
+  color: var(--color-dark) !important;
+}
+
+@media (max-width: 1023.98px) {
+  html.dark .max-lg\:dark\:bg-circularBackgroundLightLg {
+    background-image: var(--background-image-circularBackgroundLightLg) !important;
+  }
+
+  html.light .max-lg\:dark\:bg-circularBackgroundLightLg {
+    background-image: var(--background-image-circularBackgroundLg) !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  html.dark .max-md\:dark\:bg-circularBackgroundLightMd {
+    background-image: var(--background-image-circularBackgroundLightMd) !important;
+  }
+
+  html.light .max-md\:dark\:bg-circularBackgroundLightMd {
+    background-image: var(--background-image-circularBackgroundMd) !important;
+  }
+}
+
+@media (max-width: 639.98px) {
+  html.dark .max-sm\:dark\:bg-circularBackgroundLightSm {
+    background-image: var(--background-image-circularBackgroundLightSm) !important;
+  }
+
+  html.light .max-sm\:dark\:bg-circularBackgroundLightSm {
+    background-image: var(--background-image-circularBackgroundSm) !important;
+  }
 }

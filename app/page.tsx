@@ -9,9 +9,39 @@ import Projects from "@/components/projects/Projects";
 import Skills from "@/components/skills/Skills";
 
 const Home = () => {
+  const personStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Appolinaire Adande",
+    url: "https://adandeappolinaire.me",
+    image: "https://adandeappolinaire.me/assets/ApolinaireADANDE.png",
+    jobTitle: "Lead Fullstack",
+    worksFor: {
+      "@type": "Organization",
+      name: "Freelance",
+    },
+    sameAs: [
+      "https://github.com/Appolinairee",
+    ],
+    knowsAbout: [
+      "Next.js",
+      "React",
+      "NestJS",
+      "Node.js",
+      "DevOps",
+      "CI/CD",
+    ],
+  };
+
   return (
     <main className=" text-dark 
      w-full dark:bg-dark">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(personStructuredData),
+        }}
+      />
       <TransitionEffect />
       <Layout className="pt-0 h-[80vh] max-md:h-full flex! items-center dark:text-light max-lg:flex-col max-md:py-2! max-md:px-6!">
         <div className="max-md:w-full max-md:mb-0 max-md:mt-0">
@@ -26,7 +56,7 @@ const Home = () => {
               <span className="font-semibold text-primary">Lead Technique</span> spécialisé en <span className="font-semibold">Next.js/React</span>, <span className="font-semibold">NestJS/Node.js</span> et <span className="font-semibold">DevOps</span>.
             </p>
             <p className="mt-3 max-xl:hidden">
-              J'architecture et déploie des <span className="font-semibold">plateformes web scalables</span> avec CI/CD, Docker et optimisation continue.
+              J&apos;architecture et déploie des <span className="font-semibold">plateformes web scalables</span> avec CI/CD, Docker et optimisation continue.
             </p>
             <p className="mt-3 max-sm:hidden">
               Disponible pour des <span className="font-semibold text-primary">missions freelance</span> ou <span className="font-semibold text-primary">poste Lead/Senior</span> en deep tech.
