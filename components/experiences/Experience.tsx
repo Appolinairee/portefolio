@@ -43,39 +43,39 @@ const Experiences = () => {
 
         <ul className="flex flex-col">
           <Details
-            position="Lead développeur"
-            company="Conforthi"
-            companyLink="https://conforthi.com"
-            time="2022 - Présent"
+            position="Lead Africa Brain"
+            company="Africa Brain"
+            companyLink=""
+            time="2024 - Présent"
             adresse="Bénin"
-            work="Lead technique sur Conforthi, première verticale de la marketplace AtounAfrica. Mise en place de l’architecture front-end/back-end, intégration des fonctionnalités sociales et gestion technique de l'équipe."
+            work="Lead tech et promoteur de l'équipe. Pilotage de sujets produit, architecture et delivery autour de Shopinxx, Conforthi et d'autres produits web."
           />
 
           <Details
-            position="Développeur Frontend"
+            position="Fullstack Engineer"
+            company="Shopinxx"
+            companyLink="https://shopinxx.com"
+            time="2024 - Présent"
+            adresse="Bénin"
+            work="Contribution à la marketplace B2B sur la partie produit, front, API, déploiement et amélioration continue avec une logique fullstack et DevOps."
+          />
+
+          <Details
+            position="Lead Fullstack"
+            company="Conforthi"
+            companyLink="https://conforthi.shopinxx.com/"
+            time="2022 - 2025"
+            adresse="Bénin"
+            work="Conception et évolution d'une marketplace mobilier avec fonctionnalités sociales, architecture web, coordination technique et mise en production."
+          />
+
+          <Details
+            position="Frontend Engineer"
             company="Alitcha"
             companyLink="https://alitchateam.com/"
-            time="2021"
-            adresse="Bénin"
-            work="Intégré au département développement d'Alitcha, j’ai contribué au développement de l’interface du site communautaire et aux projets tech du TechLab."
-          />
-
-          <Details
-            position="Développeur d'applications & modules"
-            company="Pehu"
-            companyLink=""
-            time="2024 - 2025"
-            adresse="Pehu Group (Dr Hénoc SOUDE)"
-            work="Développement de modules intégrables pour des projets internes, dont un module de calendrier interactif comparable à Google Calendar."
-          />
-
-          <Details
-            position="Développeur fullstack"
-            company="Data Afrique Hub"
-            companyLink="https://dataafriquehub.org/"
-            time="2024 - Présent"
+            time="2021 - 2022"
             adresse="Cotonou"
-            work="Développement de plateformes de données spécifiques pour l'Afrique."
+            work="Développement d'interfaces web et participation aux projets produits de l'équipe tech."
           />
         </ul>
 

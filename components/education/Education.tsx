@@ -44,6 +44,13 @@ const Education = () => {
 
         <ul className="flex flex-col  dark:text-light">
           <Details
+            type="École Centrale Casablanca"
+            place="Élève ingénieur"
+            time="2025 - Présent"
+            info="Formation d'ingénieur généraliste avec dominante scientifique forte, menée en parallèle de projets logiciels, DevOps et ML."
+          />
+
+          <Details
             type="Licence Informatique"
             place="Institut de Mathématiques et de Sciences Physiques"
             time="2023-2024"
@@ -64,12 +71,6 @@ const Education = () => {
             info="Diplôme obtenu avec un focus sur les sciences exactes (maths et physique)."
           />
 
-          <Details
-            type="BEPC"
-            place="La Merveilleuse"
-            time="2017-2018"
-            info="Diplôme de fin du premier cycle."
-          />
         </ul>
 
       </div>

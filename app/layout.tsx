@@ -17,22 +17,26 @@ const siteUrl = "https://adandeappolinaire.me";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Appolinaire ADANDE | Lead Fullstack Next.js, Node.js et DevOps",
+    default: "Appolinaire ADANDE | Fullstack, DevOps, ML Engineer",
     template: "%s | Appolinaire ADANDE",
   },
   description:
-    "Portfolio d'Appolinaire Adande, Lead Fullstack spécialisé en Next.js, React, NestJS, Node.js, architecture web et CI/CD.",
+    "Portfolio d'Appolinaire Adande. Développement fullstack avec Next.js, React, FastAPI et Python. CI/CD, Docker, VPS DigitalOcean, ML applicatif et dashboards data.",
   keywords: [
     "Appolinaire Adande",
     "portfolio développeur",
     "Next.js",
     "React",
-    "NestJS",
-    "Node.js",
+    "FastAPI",
+    "Python",
     "DevOps",
+    "Docker",
+    "DigitalOcean",
+    "Machine Learning",
+    "ML Engineer",
     "CI/CD",
     "développeur fullstack",
-    "lead technique",
+    "ingénieur devops",
   ],
   authors: [{ name: "Appolinaire Adande", url: siteUrl }],
   creator: "Appolinaire Adande",
@@ -47,9 +51,9 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: siteUrl,
     siteName: "Portfolio Appolinaire Adande",
-    title: "Appolinaire ADANDE | Lead Fullstack Next.js, Node.js et DevOps",
+    title: "Appolinaire ADANDE | Fullstack, DevOps, ML Engineer",
     description:
-      "Portfolio d'Appolinaire Adande, Lead Fullstack spécialisé en Next.js, React, NestJS, Node.js, architecture web et CI/CD.",
+      "Développement fullstack avec Next.js, React, FastAPI et Python. CI/CD, Docker, VPS DigitalOcean, ML applicatif et dashboards data.",
     images: [
       {
         url: "/assets/ApolinaireADANDE.png",
@@ -61,9 +65,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Appolinaire ADANDE | Lead Fullstack Next.js, Node.js et DevOps",
+    title: "Appolinaire ADANDE | Fullstack, DevOps, ML Engineer",
     description:
-      "Portfolio d'Appolinaire Adande, Lead Fullstack spécialisé en Next.js, React, NestJS, Node.js, architecture web et CI/CD.",
+      "Développement fullstack avec Next.js, React, FastAPI et Python. CI/CD, Docker, VPS DigitalOcean, ML applicatif et dashboards data.",
     images: ["/assets/ApolinaireADANDE.png"],
   },
   robots: {
@@ -90,7 +94,10 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{
           __html: `
             (function() {
-              const theme = localStorage.getItem('theme') || 'light';
+              const savedTheme = localStorage.getItem('theme');
+              const theme = savedTheme === 'light' || savedTheme === 'dark'
+                ? savedTheme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
               document.documentElement.classList.remove('light', 'dark');
               document.documentElement.classList.add(theme === 'dark' ? 'dark' : 'light');
             })();

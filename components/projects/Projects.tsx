@@ -126,12 +126,45 @@ const Projects = ({ title }: { title?: string; }) => {
 
           <div className="col-span-12">
             <FeaturedProject
+              type="ML Engineer & Fullstack"
+              title="CardioSense - Heart Failure Risk Predictor"
+              summary="Application de prédiction du risque d'insuffisance cardiaque à partir de variables cliniques. Travail sur le pipeline ML, l'interface de saisie et la mise à disposition d'un outil simple d'aide à la décision."
+              img="/assets/projects/cardioai.png"
+              github=""
+              link="https://cardiosense.shopinxx.com/"
+            />
+          </div>
+
+          <div className="col-span-12">
+            <FeaturedProject
+              type="Data, ML & Dashboard"
+              title="Bénin Insights - Veille data sur le Bénin"
+              summary="Projet data/ML construit autour de GDELT pour extraire, analyser et restituer des signaux utiles sur le Bénin. Pipeline reproductible, dashboard déployé, visualisations, détection d'anomalies et restitution orientée décision."
+              img="/assets/projects/benin-insights.png"
+              github=""
+              link="https://benin-insights.adandeappolinaire.me/"
+            />
+          </div>
+
+          <div className="col-span-12">
+            <FeaturedProject
               type="Next.js & Laravel API"
               title="Conforthi - Marketplace Mobilier"
               summary="Marketplace de meubles au Bénin (temporairement hors ligne), permettant à plusieurs vendeurs de proposer leurs produits avec des fonctionnalités sociales (liker, commenter, partager). Architecture fullstack avec Next.js et API Laravel RESTful."
               img="/assets/projects/conforthi.png"
               github=""
-              link="#"
+              link="https://conforthi.shopinxx.com/"
+            />
+          </div>
+
+          <div className="col-span-12">
+            <FeaturedProject
+              type="Next.js | Site vitrine"
+              title="Target Solutions - Solutions d'impression professionnelles"
+              summary="Site vitrine développé pour une entreprise de vente d'imprimantes et de solutions d'impression. Présentation simple des produits, services et points de contact pour une présence en ligne claire et professionnelle."
+              img="/assets/projects/target-solutions.png"
+              github=""
+              link="https://targetsolus.com/"
             />
           </div>
 

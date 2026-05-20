@@ -3,12 +3,21 @@
 import { useEffect, useState } from "react";
 
 const useThemeSwitcher = (): [string, React.Dispatch<React.SetStateAction<string>>] => {
-    const [mode, setMode] = useState<string>(() => {
+    const getResolvedTheme = () => {
         if (typeof window === "undefined") {
             return "light";
         }
 
-        return localStorage.getItem("theme") || "light";
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+            return savedTheme;
+        }
+
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    };
+
+    const [mode, setMode] = useState<string>(() => {
+        return getResolvedTheme();
     });
 
     useEffect(() => {
@@ -27,6 +36,23 @@ const useThemeSwitcher = (): [string, React.Dispatch<React.SetStateAction<string
             htmlElement.classList.add("light");
         }
     }, [mode]);
+
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+            return;
+        }
+
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        const syncSystemTheme = () => {
+            setMode(mediaQuery.matches ? "dark" : "light");
+        };
+
+        mediaQuery.addEventListener("change", syncSystemTheme);
+        return () => {
+            mediaQuery.removeEventListener("change", syncSystemTheme);
+        };
+    }, []);
 
     return [mode, setMode];
 };

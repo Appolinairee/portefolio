@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Articles",
   description:
-    "Articles et réflexions d'Appolinaire Adande sur le développement web, l'architecture logicielle et l'entrepreneuriat.",
+    "Articles d'Appolinaire Adande sur le développement logiciel, l'architecture, le DevOps, le machine learning et la construction de produits.",
   alternates: {
     canonical: "/articles",
   },
