@@ -68,7 +68,7 @@ const NavBar = () => {
             animate={{ scale: 1, opacity: 1 }}
             className="hidden max-lg:flex justify-center items-center flex-col fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 bg-dark/90 dark:bg-light/90 rounded-lg backdrop-blur-md py-20 w-[80vw] max-w-lg h-auto min-h-[60vh]">
             <div className="flex flex-col items-center gap-6 justify-center text-light dark:text-dark mb-8 w-full">
-              <CustomMobileLink href="/" title="Home" toggle={handleBar}  />
+              <CustomMobileLink href="/" title="Accueil" toggle={handleBar}  />
               <CustomMobileLink href="/about" title="à propos" toggle={handleBar} />
               <CustomMobileLink href="/projects" title="Projets" toggle={handleBar} />
               <CustomMobileLink href="/articles" title="Articles" toggle={handleBar} />

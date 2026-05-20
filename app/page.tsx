@@ -1,3 +1,4 @@
+import Image from "next/image";
 import AnimatedText from "@/components/base/AnimatedText";
 import Layout from "@/components/base/Layout";
 import TransitionEffect from "@/components/base/TransitionEffect";
@@ -15,19 +16,41 @@ const Home = () => {
     name: "Appolinaire Adande",
     url: "https://adandeappolinaire.me",
     image: "https://adandeappolinaire.me/assets/ApolinaireADANDE.png",
-    jobTitle: "Lead Fullstack",
+    description:
+      "Développeur fullstack orienté produit, DevOps et ML engineering. Stack principale: Next.js, React, FastAPI, Python, Docker, CI/CD, Linux et VPS.",
+    jobTitle: "Fullstack Developer, DevOps, ML Engineer",
     worksFor: {
       "@type": "Organization",
-      name: "Freelance",
+      name: "Africa Brain",
     },
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "Institut de Mathématiques et de Sciences Physiques",
+    },
+    affiliation: [
+      {
+        "@type": "CollegeOrUniversity",
+        name: "École Centrale Casablanca",
+      },
+      {
+        "@type": "Organization",
+        name: "Africa Brain",
+      },
+    ],
     sameAs: [
       "https://github.com/Appolinairee",
+      "https://www.linkedin.com/in/appolinaire-adande-8b21ba249",
     ],
+    knowsLanguage: ["fr", "en"],
     knowsAbout: [
       "Next.js",
       "React",
       "FastAPI",
       "Python",
+      "MongoDB",
+      "Linux",
+      "VPS",
+      "TDD",
       "DevOps",
       "Machine Learning",
       "CI/CD",
@@ -46,7 +69,14 @@ const Home = () => {
       <TransitionEffect />
       <Layout className="pt-0 h-[80vh] max-md:h-full flex! items-center dark:text-light max-lg:flex-col max-md:py-2! max-md:px-6!">
         <div className="max-md:w-full max-md:mb-0 max-md:mt-0">
-          <img src={"/assets/profil.png"} className="w-auto max-md:mx-auto" alt="Profile de ADANDE Appolinaire" />
+          <Image
+            src="/assets/profil.png"
+            width={408}
+            height={554}
+            className="w-auto max-md:mx-auto"
+            alt="Portrait de ADANDE Appolinaire"
+            priority
+          />
         </div>
 
         <div className="w-1/2 flex flex-col items-stretch  justify-center h-fit max-lg:w-full ml-[10%] max-md:ml-0">

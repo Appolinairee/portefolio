@@ -28,7 +28,7 @@ const socialLinks = [
 ];
 
 const SocialIcons = ({ isNavbar = false, className }: { isNavbar?: boolean, className?: string }) => {
-    const [mode, setMode] = useThemeSwitcher();
+    const { mode, resolvedMode, setMode } = useThemeSwitcher();
 
     return (
         <div className={`flex justify-center items-center gap-5 flex-wrap ${className}`}>
@@ -48,14 +48,15 @@ const SocialIcons = ({ isNavbar = false, className }: { isNavbar?: boolean, clas
             ))}
 
             <motion.button
-                onClick={() => setMode(mode === "light" ? "dark" : "light")}
+                onClick={() => setMode(resolvedMode === "light" ? "dark" : "light")}
                 className="ml-2 flex items-center justify-center p-1 rounded-full border-none"
                 whileHover={{ rotate: 20 }}
                 whileTap={{ scale: 0.95 }}
-                aria-label="Toggle Theme"
+                aria-label={`Toggle Theme${mode === "system" ? " (system)" : ""}`}
+                title={mode === "system" ? `Auto (${resolvedMode})` : resolvedMode}
                 suppressHydrationWarning
             >
-                {mode === "dark" ? (
+                {resolvedMode === "dark" ? (
                     <SunIcon className={isNavbar ? "fill-white" : "fill-dark"} />
                 ) : (
                     <MoonIcon className={isNavbar ? "fill-dark" : "fill-white"} />

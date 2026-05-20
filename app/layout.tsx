@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Appolinaire ADANDE",
   },
   description:
-    "Portfolio d'Appolinaire Adande. Développement fullstack avec Next.js, React, FastAPI et Python. CI/CD, Docker, VPS DigitalOcean, ML applicatif et dashboards data.",
+    "Portfolio d'Appolinaire Adande. Développement fullstack avec Next.js, React, FastAPI et Python. CI/CD, Docker, Linux, VPS, ML applicatif et dashboards data.",
   keywords: [
     "Appolinaire Adande",
     "portfolio développeur",
@@ -31,7 +31,8 @@ export const metadata: Metadata = {
     "Python",
     "DevOps",
     "Docker",
-    "DigitalOcean",
+    "Linux",
+    "VPS",
     "Machine Learning",
     "ML Engineer",
     "CI/CD",
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
     siteName: "Portfolio Appolinaire Adande",
     title: "Appolinaire ADANDE | Fullstack, DevOps, ML Engineer",
     description:
-      "Développement fullstack avec Next.js, React, FastAPI et Python. CI/CD, Docker, VPS DigitalOcean, ML applicatif et dashboards data.",
+      "Développement fullstack avec Next.js, React, FastAPI et Python. CI/CD, Docker, Linux, VPS, ML applicatif et dashboards data.",
     images: [
       {
         url: "/assets/ApolinaireADANDE.png",
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Appolinaire ADANDE | Fullstack, DevOps, ML Engineer",
     description:
-      "Développement fullstack avec Next.js, React, FastAPI et Python. CI/CD, Docker, VPS DigitalOcean, ML applicatif et dashboards data.",
+      "Développement fullstack avec Next.js, React, FastAPI et Python. CI/CD, Docker, Linux, VPS, ML applicatif et dashboards data.",
     images: ["/assets/ApolinaireADANDE.png"],
   },
   robots: {
