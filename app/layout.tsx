@@ -95,7 +95,15 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{
           __html: `
             (function() {
-              const savedTheme = localStorage.getItem('theme');
+              const versionKey = 'theme-version';
+              const themeKey = 'theme';
+              const expectedVersion = '2';
+              const savedVersion = localStorage.getItem(versionKey);
+              if (savedVersion !== expectedVersion) {
+                localStorage.setItem(themeKey, 'system');
+                localStorage.setItem(versionKey, expectedVersion);
+              }
+              const savedTheme = localStorage.getItem(themeKey);
               const theme = savedTheme === 'light' || savedTheme === 'dark'
                 ? savedTheme
                 : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');

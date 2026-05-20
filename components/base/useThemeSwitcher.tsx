@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 
 export type ThemeMode = "system" | "light" | "dark";
 type ResolvedTheme = "light" | "dark";
+const THEME_STORAGE_KEY = "theme";
+const THEME_VERSION_KEY = "theme-version";
+const THEME_VERSION = "2";
 
 const getSystemTheme = (): ResolvedTheme => {
     if (typeof window === "undefined") {
@@ -18,7 +21,15 @@ const getStoredMode = (): ThemeMode => {
         return "system";
     }
 
-    const savedTheme = localStorage.getItem("theme");
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    const savedVersion = localStorage.getItem(THEME_VERSION_KEY);
+
+    if (savedVersion !== THEME_VERSION) {
+        localStorage.setItem(THEME_STORAGE_KEY, "system");
+        localStorage.setItem(THEME_VERSION_KEY, THEME_VERSION);
+        return "system";
+    }
+
     if (savedTheme === "system" || savedTheme === "light" || savedTheme === "dark") {
         return savedTheme;
     }
@@ -38,7 +49,8 @@ const useThemeSwitcher = () => {
     const resolvedMode: ResolvedTheme = mode === "system" ? systemTheme : mode;
 
     useEffect(() => {
-        localStorage.setItem("theme", mode);
+        localStorage.setItem(THEME_STORAGE_KEY, mode);
+        localStorage.setItem(THEME_VERSION_KEY, THEME_VERSION);
         applyTheme(resolvedMode);
     }, [mode, resolvedMode]);
 

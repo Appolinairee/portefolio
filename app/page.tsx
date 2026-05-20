@@ -107,7 +107,7 @@ const Home = () => {
 
             <a
               href="/projects"
-              className="relative px-5 py-3 bg-gray-100 text-lg font-medium flex items-center gap-2 rounded-[15px] cursor-pointer hover:bg-gray-300 transition dark:text-dark max-md:text-sm"
+              className="relative px-5 py-3 bg-light text-dark text-lg font-medium flex items-center gap-2 rounded-[15px] cursor-pointer border border-dark/20 hover:bg-gray-200 transition dark:border-light/20 dark:bg-light dark:text-dark max-md:text-sm"
             >
               Voir projets
             </a>

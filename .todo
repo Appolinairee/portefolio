@@ -1,7 +1,8 @@
-- [ ] mode system par défaut
-- [ ] contenus: projets, articles, images, textes, ...
-- [ ] SEO avancé (profil technique réel, concret, droit au but, sans fioritures marketing pour plaire, révolution technique)
-- [ ] code page articles et déroulement 
+- [x] mode system par défaut
+- [ ] finaliser les contenus restants: articles, textes secondaires, éventuelles images manquantes
+- [x] SEO avancé (profil technique réel, concret, droit au but, sans fioritures marketing)
 - [x] bouton disutons, enlever télécharger CV (mode produit, entrepreneur)
-
+- [ ] refaire la page articles et son déroulement
 - [ ] déployer le projet calendar
+- [ ] relire l'ensemble du portfolio sur mobile et desktop
+- [ ] mettre à jour `baseline-browser-mapping` pour supprimer l'avertissement de build
