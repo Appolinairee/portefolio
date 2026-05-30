@@ -128,20 +128,20 @@ const Projects = ({ title }: { title?: string; }) => {
             <FeaturedProject
               type="ML Engineer & Fullstack"
               title="CardioSense - Heart Failure Risk Predictor"
-              summary="Application de prédiction du risque d'insuffisance cardiaque à partir de variables cliniques. Travail sur le pipeline ML, l'interface de saisie et la mise à disposition d'un outil simple d'aide à la décision."
+              summary="Application de prédiction du risque d'insuffisance cardiaque à partir de variables cliniques. Pipeline ML, interface de saisie, déploiement web et dépôt GitHub public pour montrer le raisonnement modèle-produit de bout en bout."
               img="/assets/projects/cardioai.png"
-              github=""
+              github="https://github.com/Appolinairee/heart-failure-predictor"
               link="https://cardiosense.shopinxx.com/"
             />
           </div>
 
           <div className="col-span-12">
             <FeaturedProject
-              type="Data, ML & Dashboard"
-              title="Bénin Insights - Veille data sur le Bénin"
-              summary="Projet data/ML construit autour de GDELT pour extraire, analyser et restituer des signaux utiles sur le Bénin. Pipeline reproductible, dashboard déployé, visualisations, détection d'anomalies et restitution orientée décision."
+              type="Python, ML, Gemini & CI/CD"
+              title="Bénin Insights - Dashboard GDELT & Analyste IA"
+              summary="Projet data/ML sur 5 000+ événements GDELT liés au Bénin : ETL reproductible, BERTopic, NER, graphe d'acteurs, détection d'anomalies, modèle Random Forest, dashboard Streamlit déployé et Analyste IA Gemini avec contexte métier injecté."
               img="/assets/projects/benin-insights.png"
-              github=""
+              github="https://github.com/Maurigeek/benin-insights-challenge-team2"
               link="https://benin-insights.adandeappolinaire.me/"
             />
           </div>
