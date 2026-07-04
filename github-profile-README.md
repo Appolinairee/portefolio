@@ -5,16 +5,16 @@
     <img src="https://img.shields.io/badge/🌐%20Portfolio-adandeappolinaire.me-blue?style=for-the-badge&color=B63E96" alt="Portfolio" />
   </a>
   <a href="mailto:appolinaireenangnon.adande@centrale-casablanca.ma">
-    <img src="https://img.shields.io/badge/✉️%20Email-Contact-blue?style=for-the-badge&color=58E6D9&logoColor=black" alt="Email" />
+    <img src="https://img.shields.io/badge/✉️%20Email-Contact-blue?style=for-the-badge&color=3E4651" alt="Email" />
   </a>
   <a href="https://wa.me/212657553269" target="_blank">
-    <img src="https://img.shields.io/badge/💬%20WhatsApp-Discutons-green?style=for-the-badge&logo=whatsapp" alt="WhatsApp" />
+    <img src="https://img.shields.io/badge/💬%20WhatsApp-Discutons-green?style=for-the-badge&logo=whatsapp&color=3E4651" alt="WhatsApp" />
   </a>
 </p>
 
 Je conçois et déploie des architectures web avec une base **Fullstack et DevOps solide** orientée vers le **Machine Learning appliqué**.
 
-Élève ingénieur à l'**École Centrale Casablanca**.
+Ingénieur Généraliste &mdash; **École Centrale Casablanca**.
 
 ---
 
@@ -22,28 +22,28 @@ Je conçois et déploie des architectures web avec une base **Fullstack et DevOp
 
 ### 1️⃣ Core Stack (Expertise)
 <p align="left">
-  <img src="https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-  <img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS" />
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Next.js-3E4651?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-3E4651?style=for-the-badge&logo=react&logoColor=white" alt="React" />
+  <img src="https://img.shields.io/badge/NestJS-3E4651?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS" />
+  <img src="https://img.shields.io/badge/TypeScript-3E4651?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
 </p>
 
 ### 2️⃣ Infrastructure & Données
 <p align="left">
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
-  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
-  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/CI%2FCD-Enabled-success?style=for-the-badge" alt="CI/CD" />
+  <img src="https://img.shields.io/badge/Docker-3E4651?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+  <img src="https://img.shields.io/badge/Linux-3E4651?style=for-the-badge&logo=linux&logoColor=white" alt="Linux" />
+  <img src="https://img.shields.io/badge/MongoDB-3E4651?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+  <img src="https://img.shields.io/badge/PostgreSQL-3E4651?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+  <img src="https://img.shields.io/badge/CI%2FCD-3E4651?style=for-the-badge" alt="CI/CD" />
 </p>
 
 ### 3️⃣ Compétences Transverses & Émergentes
 <p align="left">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
-  <img src="https://img.shields.io/badge/Machine_Learning-Orange?style=for-the-badge" alt="Machine Learning" />
-  <img src="https://img.shields.io/badge/TDD-Red?style=for-the-badge" alt="TDD" />
+  <img src="https://img.shields.io/badge/Python-3E4651?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/FastAPI-3E4651?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/Machine_Learning-3E4651?style=for-the-badge" alt="Machine Learning" />
+  <img src="https://img.shields.io/badge/TDD-3E4651?style=for-the-badge" alt="TDD" />
 </p>
 
 ---

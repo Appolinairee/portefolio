@@ -45,7 +45,7 @@ const Education = () => {
         <ul className="flex flex-col  dark:text-light">
           <Details
             type="École Centrale Casablanca"
-            place="Élève ingénieur"
+            place="Ingénieur Généraliste"
             time="2025 - Présent"
             info="Formation d'ingénieur généraliste avec dominante scientifique forte, menée en parallèle du pilotage technique de projets fullstack, DevOps et de la trajectoire vers le ML Engineering."
           />
