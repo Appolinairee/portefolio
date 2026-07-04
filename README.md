@@ -2,7 +2,7 @@
 
 ![Portfolio Preview](./public/assets/identity-picture.png)
 
-Portfolio professionnel moderne conçu pour présenter mes projets, mes compétences et mes expériences dans ma trajectoire **Fullstack, DevOps → ML Engineering**.
+Portfolio professionnel moderne conçu pour présenter mes projets, mes compétences et mes expériences en tant que Développeur Fullstack, DevOps et ML Engineer.
 
 ---
 
@@ -10,11 +10,10 @@ Portfolio professionnel moderne conçu pour présenter mes projets, mes compéte
 
 ---
 
-## 🛠️ Stack Technique Core
+## 🛠️ Stack Technique
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.2-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
-[![NestJS](https://img.shields.io/badge/NestJS-v10-E0234E?style=flat-square&logo=nestjs)](https://nestjs.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.2-F002B3?style=flat-square&logo=framer)](https://www.framer.com/motion/)
@@ -22,20 +21,11 @@ Portfolio professionnel moderne conçu pour présenter mes projets, mes compéte
 
 ---
 
-## 🏆 Projets Vedettes
-
-*   **Aqua-Atmos (Production d'eau intelligente) :** Système IoT et d'embedded ML (câblage ESP32, règles physiques + IA, dashboard Flask/Raspberry Pi) pour la récolte d'eau atmosphérique autonome. *Lauréat du prix de la meilleure présentation à l'École Centrale Casablanca.*
-*   **Shopinxx (Marketplace B2B) :** Plateforme e-commerce connectant grossistes et revendeurs. Architecture moderne avec Next.js et NestJS, APIs REST, Docker et CI/CD sur VPS Linux.
-*   **Conforthi (Marketplace Mobilier) :** Marketplace de meubles au Bénin avec fonctionnalités sociales. Construit en Next.js avec une API Laravel RESTful.
-*   **CardioSense (ML Clinical Predictor) :** Application Web de prédiction des risques d'insuffisances cardiaques à partir de données cliniques (pipeline ML et interface de saisie réactive).
-
----
-
-## 🚀 Lancement Local
+## 🚀 Installation & Lancement Local
 
 Vous pouvez lancer le projet sur votre machine locale via npm ou via Docker.
 
-### Option 1 : Avec npm (3 commandes)
+### Option 1 : Lancement avec npm (3 commandes)
 
 ```bash
 # 1. Cloner le projet
@@ -47,13 +37,15 @@ npm install
 # 3. Lancer le serveur de développement
 npm run dev
 ```
+
 Le projet sera accessible sur [http://localhost:3000](http://localhost:3000).
 
-### Option 2 : Avec Docker (Environnement Dev)
+### Option 2 : Lancement avec Docker (Environnement Dev)
 
 ```bash
 docker compose -f docker-compose.dev.yml up
 ```
+
 Le projet sera accessible sur [http://localhost:3006](http://localhost:3006).
 
 ---
@@ -61,8 +53,7 @@ Le projet sera accessible sur [http://localhost:3006](http://localhost:3006).
 ## 🛠️ Choix Techniques Notables
 
 *   **Next.js 16 & React 19 (App Router) :** Utilisation des dernières technologies React pour bénéficier des *Server Components (RSC)* qui réduisent le JavaScript côté client et améliorent le temps de chargement initial.
-*   **NestJS & Architecture API :** Intégration de NestJS pour des architectures backend robustes, scalables et typées en TypeScript, idéales pour les projets d'envergure comme Shopinxx.
-*   **Tailwind CSS v4 & Framer Motion :** Design system fluide et performant avec micro-animations de transitions (`TransitionEffect`, `AnimatedText`) sans sacrifier les temps de chargement.
+*   **Tailwind CSS v4 & Framer Motion :** Intégration de micro-animations interactives et fluides (`TransitionEffect`, `AnimatedText`) combinées à la vitesse du nouveau compilateur CSS de Tailwind v4.
 *   **Conteneurisation & Durcissement Sécurité :** L'image Docker de production est hautement sécurisée (exécution sous utilisateur non-root `nextjs`, isolation réseau, désactivation de privilèges `no-new-privileges:true` et suppression de toutes les capacités via `cap_drop: ALL`).
 
 ---
@@ -80,7 +71,7 @@ portefolio/
 │   ├── base/             # Mises en page de base, animations de transition
 │   ├── education/        # Section Éducation
 │   ├── experiences/      # Section Expérience professionnelle
-│   ├── home/             # Call-to-actions et avant-propos de l'accueil
+│   ├── home/             # Call-to-actions et interactions de la page d'accueil
 │   ├── navbar/           # Navigation responsive
 │   ├── projects/         # Affichage des projets
 │   └── skills/           # Grille et animations des technologies maîtrisées
@@ -101,3 +92,4 @@ portefolio/
 ---
 
 © 2026 Adande Appolinaire. Tous droits réservés.
+

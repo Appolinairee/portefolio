@@ -95,6 +95,6 @@ Ingénieur Généraliste &mdash; **École Centrale Casablanca**.
 
 <p align="left">
   <a href="https://github.com/Appolinairee">
-    <img src="https://github-readme-stats.vercel.app/api?username=Appolinairee&show_icons=true&theme=radical" alt="Stats GitHub" />
+    <img src="https://github-stats-extended.vercel.app/api?username=Appolinairee&show_icons=true&theme=radical" alt="Stats GitHub" />
   </a>
 </p>
