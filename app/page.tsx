@@ -68,35 +68,32 @@ const Home = () => {
       />
       <TransitionEffect />
       <Layout className="pt-0 h-[80vh] max-md:h-full flex! items-center dark:text-light max-lg:flex-col max-md:py-2! max-md:px-6!">
-        <div className="max-md:w-full max-md:mb-0 max-md:mt-0">
+        <div className="w-[40%] max-lg:w-full max-lg:mb-8 flex justify-center">
           <Image
             src="/assets/profil.png"
             width={408}
             height={554}
-            className="w-auto max-md:mx-auto"
+            className="w-full h-auto max-w-[400px] max-lg:max-w-[300px] object-contain"
             alt="Portrait de ADANDE Appolinaire"
             priority
           />
         </div>
 
-        <div className="w-1/2 flex flex-col items-stretch  justify-center h-fit max-lg:w-full ml-[10%] max-md:ml-0">
-          <AnimatedText text="Fullstack. DevOps. ML Engineer." className="text-6xl! text-left dark:text-light max-xl:text-5xl! max-lg:text-center! max-sm:text-3xl! max-lg:align-center" />
+        <div className="w-1/2 flex flex-col items-stretch justify-center h-fit max-lg:w-full ml-[10%] max-lg:ml-0 gap-y-10 max-lg:gap-y-6">
+          <AnimatedText text="Fullstack, DevOps → ML Engineering" className="text-6xl! text-left dark:text-light max-xl:text-5xl! max-lg:text-center! max-sm:text-3xl! max-lg:align-center" />
 
-          <div className="my-4 text-base font-medium max-lg:text-center">
-            <p className="text-lg">
-              Je conçois et déploie des produits web avec <span className="font-semibold">Next.js/React</span>, <span className="font-semibold">FastAPI/Python</span>, <span className="font-semibold">Docker</span> et <span className="font-semibold">CI/CD</span>.
+          <div className="text-base font-medium max-lg:text-center flex flex-col gap-y-6">
+            <p className="text-xl! leading-relaxed">
+              Je conçois et déploie des produits web avec <span className="font-semibold">Next.js/React</span>, <span className="font-semibold">NestJS</span>, <span className="font-semibold">Docker</span> et <span className="font-semibold">CI/CD/TDD</span> — une base fullstack et DevOps solide que j&apos;oriente aujourd&apos;hui vers le <span className="font-semibold text-primary">ML appliqué</span>.
             </p>
-            <p className="mt-3 max-xl:hidden">
-              Mon focus: <span className="font-semibold text-primary">fullstack solide</span>, <span className="font-semibold text-primary">ops fiables</span> et <span className="font-semibold text-primary">produits ML utiles</span>.
-            </p>
-            <p className="mt-3 max-sm:hidden">
-              J&apos;interviens sur des sujets <span className="font-semibold">produit</span>, <span className="font-semibold">architecture</span>, <span className="font-semibold">déploiement</span> et <span className="font-semibold">ML applicatif</span>.
+            <p className="text-xl! leading-relaxed">
+              Mon focus: <span className="font-semibold text-primary">fullstack robuste</span>, <span className="font-semibold text-primary">delivery fiable</span> et <span className="font-semibold text-primary">ML applicatif</span>.
             </p>
           </div>
 
-          <div className="flex gap-5 items-center justify-start max-lg:justify-center max-sm:flex-wrap">
+          <div className="flex gap-5 items-center justify-start max-lg:justify-center max-sm:flex-wrap mt-4">
             <a
-              href="mailto:appolinaire.dev@gmail.com"
+              href="mailto:appolinaireenangnon.adande@centrale-casablanca.ma"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-dark text-light px-5 py-3 hover:bg-white hover:border-dark hover:text-dark border border-dark rounded-[15px] font-bold transition duration-200 flex gap-2 items-center dark:bg-light dark:text-dark max-md:text-sm"

@@ -28,19 +28,25 @@ const Skills = () => {
           whileHover={{ scale: 1.06 }}
         >Build</motion.div>
 
-        <Skill name="Next.js" x="-5vw" y="-13vw" level="advanced" />
-        <Skill name="React" x="-22vw" y="2vw" level="advanced" />
-        <Skill name="FastAPI" x="18vw" y="-10vw" level="advanced" />
-        <Skill name="Python" x="-20vw" y="-15vw" level="advanced" />
-        <Skill name="Docker" x="0vw" y="12vw" level="advanced" />
-        <Skill name="CI/CD" x="20vw" y="6vw" level="advanced" />
+        {/* Orbit 1: Core Stack (Proche du centre, distance ~10-14vw) */}
+        <Skill name="Next.js" x="-6vw" y="-12vw" level="advanced" />
+        <Skill name="React" x="-12vw" y="4vw" level="advanced" />
+        <Skill name="NestJS" x="10vw" y="-8vw" level="advanced" />
+
+        {/* Orbit 2: Infrastructure & Data (Milieu, distance ~18-25vw) */}
+        <Skill name="Docker" x="6vw" y="17vw" level="advanced" />
+        <Skill name="CI/CD" x="20vw" y="7vw" level="advanced" />
+        <Skill name="SQL" x="16vw" y="-16vw" />
+        <Skill name="MongoDB" x="17vw" y="18vw" />
+        <Skill name="Linux" x="-16vw" y="18vw" />
+        <Skill name="VPS" x="-23vw" y="10vw" />
+
+        {/* Orbit 3: Compétences Transverses & Émergentes (Périphérie, distance ~28-32vw) */}
+        <Skill name="FastAPI" x="26vw" y="-15vw" />
+        <Skill name="Python" x="-27vw" y="-13vw" level="advanced" />
         <Skill name="ML" x="29vw" y="-2.5vw" />
-        <Skill name="SQL" x="32vw" y="-17vw" />
-        <Skill name="Linux" x="-25vw" y="16vw" />
-        <Skill name="MongoDB" x="18vw" y="18vw" />
-        <Skill name="TailwindCSS" x="5vw" y="25vw" level="advanced" />
-        <Skill name="TDD" x="0vw" y="-22vw" />
-        <Skill name="VPS" x="30vw" y="16vw" />
+        <Skill name="TDD" x="-22vw" y="-18vw" />
+        <Skill name="TailwindCSS" x="27vw" y="12vw" level="advanced" />
       </div>
     </>
   )

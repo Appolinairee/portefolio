@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import { AnimatePresence } from 'framer-motion';
 import NavBar from "@/components/navbar/NavBar";
+import Script from "next/script";
 
 const montserrat = Montserrat({
   weight: ["100", "300", "400", "500", "600"],
@@ -92,8 +93,8 @@ export default function RootLayout({
   return (
     <html lang="fr" className={montserrat.variable} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{
-          __html: `
+        <Script id="theme-initializer" strategy="beforeInteractive">
+          {`
             (function() {
               const versionKey = 'theme-version';
               const themeKey = 'theme';
@@ -110,8 +111,8 @@ export default function RootLayout({
               document.documentElement.classList.remove('light', 'dark');
               document.documentElement.classList.add(theme === 'dark' ? 'dark' : 'light');
             })();
-          `
-        }} />
+          `}
+        </Script>
       </head>
       <body className="font-montserrat antialiased">
         <NavBar />

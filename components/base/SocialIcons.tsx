@@ -11,7 +11,7 @@ const socialLinks = [
         label: "LinkedIn",
     },
     {
-        href: "https://wa.me/22953846658",
+        href: "https://wa.me/212657553269",
         icon: <WhatsappIcon />,
         label: "WhatsApp",
     },
@@ -21,7 +21,7 @@ const socialLinks = [
         label: "GitHub",
     },
     {
-        href: "mailto:appolinaire.dev@gmail.com",
+        href: "mailto:appolinaireenangnon.adande@centrale-casablanca.ma",
         icon: <MailIcon className="text-primary" />,
         label: "Mail",
     },

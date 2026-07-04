@@ -7,7 +7,7 @@ import TransitionEffect from "../base/TransitionEffect";
 import Layout from "../base/Layout";
 import AnimatedText from "../base/AnimatedText";
 
-const FeaturedProject = ({ type, title, summary, img, github, link }: { type: string; title: string; summary: string; img: string; github?: string; link: string; }) => {
+const FeaturedProject = ({ type, title, summary, img, github, link }: { type: string; title: string; summary: string | React.ReactNode; img: string; github?: string; link: string; }) => {
   return (
     <article className="w-auto flex items-center justify-center rounded-2xl border border-gray-300 bg-light p-6 relative rounded-br-3xl dark:text-light dark:bg-dark max-lg:p-8 max-xs:rounded-2xl max-xs:rounded-br-3xl max-xs:p-4 dark:border dark:border-light max-lg:flex-col">
 
@@ -33,7 +33,7 @@ const FeaturedProject = ({ type, title, summary, img, github, link }: { type: st
             {title}{" "}
           </h2>
         </Link>
-        <p className="my-2 font-medium text-dark dark:text-light max-sm:text-sm">{summary}</p>
+        <div className="my-2 font-medium text-dark dark:text-light max-sm:text-sm">{summary}</div>
 
         <div className="flex gap-5 items-center justify-start mt-2">
           {github && <Link href={github} target="_blank">
@@ -115,12 +115,38 @@ const Projects = ({ title }: { title?: string; }) => {
 
           <div className="col-span-12">
             <FeaturedProject
+              type="IoT, Embedded ML & Flask"
+              title="Aqua-Atmos - Production d'eau atmosphérique intelligente"
+              summary={
+                <>
+                  🏆 <strong>Lauréat du prix de la meilleure présentation à l&apos;École Centrale Casablanca</strong> — Système intelligent de production d&apos;eau atmosphérique porté par une équipe de 6. Conception de la partie électronique (capteurs, actionneurs, câblage ESP32), logique de décision embarquée (règles physiques + IA) et dashboard Flask/Raspberry Pi pour le pilotage et le monitoring en temps réel.
+                </>
+              }
+              img="/assets/projects/aqua-atmos.jpeg"
+              github="https://github.com/Appolinairee/aqua-atmos-ai"
+              link="https://github.com/Appolinairee/aqua-atmos-ai"
+            />
+          </div>
+
+          <div className="col-span-12">
+            <FeaturedProject
               type="Next.js & NestJS | Lead Fullstack"
               title="Shopinxx - Marketplace B2B"
               summary="Marketplace B2B connectant grossistes, revendeurs et clients finaux. Lead technique de l'équipe : architecture fullstack (Next.js/NestJS), API REST, CI/CD avec Docker, déploiement VPS Linux et optimisation continue de la plateforme."
               img="/assets/projects/shopinx.png"
               github=""
               link="https://shopinxx.com"
+            />
+          </div>
+
+          <div className="col-span-12">
+            <FeaturedProject
+              type="Next.js & Laravel API"
+              title="Conforthi - Marketplace Mobilier"
+              summary="Marketplace de meubles au Bénin (temporairement hors ligne), permettant à plusieurs vendeurs de proposer leurs produits avec des fonctionnalités sociales (liker, commenter, partager). Architecture fullstack avec Next.js et API Laravel RESTful."
+              img="/assets/projects/conforthi.png"
+              github=""
+              link="https://conforthi.shopinxx.com/"
             />
           </div>
 
@@ -143,17 +169,6 @@ const Projects = ({ title }: { title?: string; }) => {
               img="/assets/projects/benin-insights.png"
               github="https://github.com/Maurigeek/benin-insights-challenge-team2"
               link="https://benin-insights.adandeappolinaire.me/"
-            />
-          </div>
-
-          <div className="col-span-12">
-            <FeaturedProject
-              type="Next.js & Laravel API"
-              title="Conforthi - Marketplace Mobilier"
-              summary="Marketplace de meubles au Bénin (temporairement hors ligne), permettant à plusieurs vendeurs de proposer leurs produits avec des fonctionnalités sociales (liker, commenter, partager). Architecture fullstack avec Next.js et API Laravel RESTful."
-              img="/assets/projects/conforthi.png"
-              github=""
-              link="https://conforthi.shopinxx.com/"
             />
           </div>
 

@@ -11,10 +11,10 @@ const Footer = () => {
 
         <div className="max-lg:py-2 ">
           Build with <HeartIcon className="inline mr-1 text-primary" />
-          by <Link className="underline underline-offset-2" href="emailto:adandappolinaire@gmail.com" target="_blank">Appolinaire</Link>
+          by <Link className="underline underline-offset-2" href="mailto:appolinaireenangnon.adande@centrale-casablanca.ma" target="_blank">Appolinaire</Link>
         </div>
 
-        <Link className="underline" target="_blank" href="emailto:appolinaire.dev@gmail.com">Me contacter</Link>
+        <Link className="underline" target="_blank" href="mailto:appolinaireenangnon.adande@centrale-casablanca.ma">Me contacter</Link>
 
         <SocialIcons className="hidden max-md:flex mt-3" />
       </Layout>

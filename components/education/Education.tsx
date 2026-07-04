@@ -47,7 +47,7 @@ const Education = () => {
             type="École Centrale Casablanca"
             place="Élève ingénieur"
             time="2025 - Présent"
-            info="Formation d'ingénieur généraliste avec dominante scientifique forte, menée en parallèle de projets logiciels, DevOps et ML."
+            info="Formation d'ingénieur généraliste avec dominante scientifique forte, menée en parallèle du pilotage technique de projets fullstack, DevOps et de la trajectoire vers le ML Engineering."
           />
 
           <Details

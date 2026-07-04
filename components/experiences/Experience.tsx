@@ -3,7 +3,7 @@ import { useScroll, motion } from "framer-motion";
 import { useRef } from "react";
 import LiIcon from "./LiIcon";
 
-const Details = ({ position, company, companyLink, time, adresse, work }: { position: string; company: string; companyLink: string; time: string; adresse: string; work: string; }) => {
+const Details = ({ position, company, companyLink, time, adresse, work }: { position: string; company: string; companyLink: string; time: string; adresse: string; work: React.ReactNode; }) => {
   const ref = useRef<HTMLLIElement>(null);
 
   return <li ref={ref} className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col justify-between text-left max-lg:w-[80%]">
@@ -20,7 +20,7 @@ const Details = ({ position, company, companyLink, time, adresse, work }: { posi
         {time} | {adresse}
       </span>
 
-      <p className="font-medium w-full max-md:text-sm">{work}</p>
+      <div className="font-medium w-full max-md:text-sm mt-2">{work}</div>
     </motion.div>
   </li>
 }
@@ -49,6 +49,19 @@ const Experiences = () => {
             time="2024 - Présent"
             adresse="Bénin"
             work="Lead tech et promoteur de l'équipe. Pilotage de sujets produit, architecture et delivery autour de Shopinxx, Conforthi et d'autres produits web."
+          />
+
+          <Details
+            position="Lead Software & Électronique"
+            company="Aqua-Atmos"
+            companyLink="https://github.com/Appolinairee/aqua-atmos-ai"
+            time="2025 - 2026"
+            adresse="Casablanca"
+            work={
+              <>
+                🏆 <strong>Prix de la meilleure présentation à l&apos;École Centrale Casablanca</strong> — Système de production d&apos;eau atmosphérique porté par une équipe de 6. En charge de l&apos;électronique (capteurs, actionneurs, câblage ESP32), de la logique de décision embarquée (règles + IA) et du dashboard Flask/Raspberry Pi pour le pilotage à distance en temps réel.
+              </>
+            }
           />
 
           <Details
