@@ -18,9 +18,9 @@ Ingénieur Généraliste &mdash; **École Centrale Casablanca**.
 
 ---
 
-## 🛠️ Compétences & Technologies
+## Compétences & Technologies
 
-### 1️⃣ Core Stack (Expertise)
+### Core Stack (Expertise)
 <p align="left">
   <img src="https://img.shields.io/badge/Next.js-3E4651?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
   <img src="https://img.shields.io/badge/React-3E4651?style=for-the-badge&logo=react&logoColor=white" alt="React" />
@@ -29,7 +29,7 @@ Ingénieur Généraliste &mdash; **École Centrale Casablanca**.
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
 </p>
 
-### 2️⃣ Infrastructure & Données
+### Infrastructure & Données
 <p align="left">
   <img src="https://img.shields.io/badge/Docker-3E4651?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
   <img src="https://img.shields.io/badge/Linux-3E4651?style=for-the-badge&logo=linux&logoColor=white" alt="Linux" />
@@ -38,7 +38,7 @@ Ingénieur Généraliste &mdash; **École Centrale Casablanca**.
   <img src="https://img.shields.io/badge/CI%2FCD-3E4651?style=for-the-badge" alt="CI/CD" />
 </p>
 
-### 3️⃣ Compétences Transverses & Émergentes
+### Compétences Transverses & Émergentes
 <p align="left">
   <img src="https://img.shields.io/badge/Python-3E4651?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
   <img src="https://img.shields.io/badge/FastAPI-3E4651?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
@@ -91,10 +91,9 @@ Ingénieur Généraliste &mdash; **École Centrale Casablanca**.
 
 ---
 
-## 📈 Statistiques GitHub
+## 📬 Me Contacter
 
-<p align="left">
-  <a href="https://github.com/Appolinairee">
-    <img src="https://github-stats-extended.vercel.app/api?username=Appolinairee&show_icons=true&theme=radical" alt="Stats GitHub" />
-  </a>
-</p>
+*   **Portfolio :** [adandeappolinaire.me](https://adandeappolinaire.me)
+*   **Email :** [appolinaireenangnon.adande@centrale-casablanca.ma](mailto:appolinaireenangnon.adande@centrale-casablanca.ma)
+*   **LinkedIn :** [Appolinaire Adande](https://www.linkedin.com/in/appolinaire-adande-8b21ba249)
+*   **WhatsApp :** [+212 657553269](https://wa.me/212657553269)

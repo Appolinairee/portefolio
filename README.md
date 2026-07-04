@@ -92,4 +92,3 @@ portefolio/
 ---
 
 © 2026 Adande Appolinaire. Tous droits réservés.
-
