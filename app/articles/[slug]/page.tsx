@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         authors: ["ADANDE Appolinaire"],
       },
     };
-  } catch (e) {
+  } catch {
     return {
       title: "Article introuvable",
     };
@@ -38,6 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 // Composants personnalisés pour le rendu MDX (style Tailwind)
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const mdxComponents = {
   h1: (props: any) => <h1 className="text-4xl font-bold mt-8 mb-4 dark:text-light" {...props} />,
   h2: (props: any) => <h2 className="text-3xl font-bold mt-10 mb-4 dark:text-light border-b border-gray-200 dark:border-gray-700 pb-2" {...props} />,
