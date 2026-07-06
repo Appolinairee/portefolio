@@ -4,7 +4,6 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import { AnimatePresence } from 'framer-motion';
 import NavBar from "@/components/navbar/NavBar";
-import Script from "next/script";
 
 const montserrat = Montserrat({
   weight: ["100", "300", "400", "500", "600"],
@@ -93,8 +92,8 @@ export default function RootLayout({
   return (
     <html lang="fr" className={montserrat.variable} suppressHydrationWarning>
       <head>
-        <Script id="theme-initializer" strategy="beforeInteractive">
-          {`
+        <script id="theme-initializer" dangerouslySetInnerHTML={{
+          __html: `
             (function() {
               const versionKey = 'theme-version';
               const themeKey = 'theme';
@@ -111,8 +110,38 @@ export default function RootLayout({
               document.documentElement.classList.remove('light', 'dark');
               document.documentElement.classList.add(theme === 'dark' ? 'dark' : 'light');
             })();
-          `}
-        </Script>
+          `
+        }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "ADANDE Appolinaire",
+              "url": "https://adandeappolinaire.me",
+              "sameAs": [
+                "https://github.com/Appolinairee",
+                "https://www.linkedin.com/in/appolinaire-adande/"
+              ],
+              "jobTitle": "Ingénieur Généraliste, Fullstack, DevOps & ML Engineer",
+              "alumniOf": {
+                "@type": "EducationalOrganization",
+                "name": "École Centrale Casablanca"
+              },
+              "knowsAbout": [
+                "Software Engineering",
+                "DevOps",
+                "Machine Learning",
+                "Next.js",
+                "React",
+                "NestJS",
+                "Docker",
+                "FastAPI"
+              ]
+            })
+          }}
+        />
       </head>
       <body className="font-montserrat antialiased">
         <NavBar />

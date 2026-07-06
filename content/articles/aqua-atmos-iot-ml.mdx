@@ -1,0 +1,113 @@
+---
+title: "Architecture décisionnelle hybride sur microcontrôleur : règles physiques et TinyML"
+summary: "Comment concevoir un système embarqué capable de prendre des décisions autonomes dans un environnement physique contraint ? Analyse d'une architecture à deux niveaux combinant règles déterministes et inférence ML locale sur ESP32."
+date: "2026-07-06"
+img: "/assets/projects/aqua-atmos-dashboard.jpg"
+tags: ["IoT", "TinyML", "ESP32", "Architecture embarquée"]
+---
+
+La production d'eau atmosphérique — extraction de l'humidité de l'air ambiant par condensation — est une technologie en forte croissance. Selon Market Research Future, le marché mondial des générateurs d'eau atmosphérique (AWG) était valorisé entre **2,2 et 2,7 milliards USD en 2024**, avec un CAGR de 8 à 10,5% projeté jusqu'en 2035. Ce dynamisme est directement corrélé à l'ampleur de la crise mondiale de l'eau : l'OMS et l'UNICEF estiment qu'**environ 2,1 milliards de personnes** n'ont pas accès à une eau potable gérée de manière sûre, et le World Economic Forum projette que la demande mondiale en eau douce pourrait dépasser l'offre de **40% dès 2030**.
+
+Rendre ces systèmes réellement autonomes et optimisés soulève un défi d'ingénierie central : **comment concevoir la logique décisionnelle d'un système embarqué confronté à un environnement physique variable ?**
+
+---
+
+## Le contexte des contraintes embarquées
+
+L'exécution d'une inférence ML sur le cloud pour piloter un système physique en temps réel est incompatible avec les exigences de la plupart des applications IoT industrielles ou de terrain. Les raisons sont structurelles :
+
+- **Latence** : une inférence cloud génère 50 à 200ms de délai de round-trip réseau. Une inférence locale sur microcontrôleur s'exécute en **1 à 10ms** (source : études TinyML, Firecell.io, MDPI 2024).
+- **Fiabilité** : la connectivité réseau est intermittente dans les environnements de déploiement difficiles (zones rurales, terrain).
+- **Énergie** : maintenir un module radio (Wi-Fi, LTE) actif en continu représente souvent le premier poste de consommation énergétique d'un objet connecté — bien supérieur au coût de l'inférence locale elle-même.
+
+L'ESP32 (Espressif), microcontrôleur dual-core Xtensa LX6 à 240 MHz, dispose de **520 KB de SRAM interne** (SRAM0 : 192 KB IRAM, SRAM1 : 128 KB, SRAM2 : 200 KB DRAM), auxquels s'ajoutent jusqu'à 4 MB de PSRAM externe sur les variantes WROVER. En pratique, la pile Wi-Fi seule consomme jusqu'à 64 KB de DRAM, réduisant l'espace disponible pour les données applicatives. La mémoire est donc une contrainte de conception première, pas une contrainte secondaire.
+
+---
+
+## 1. La base : Les lois de la physique ne mentent jamais
+
+Toute architecture décisionnelle embarquée pour un système physique doit reposer en premier lieu sur des **invariants physiques**. Un algorithme de ML, aussi précis soit-il, ne peut pas violer les lois de la thermodynamique.
+
+Dans le cas d'un système de condensation atmosphérique, la contrainte fondamentale est le **point de rosée** : si la température de la surface de condensation est supérieure au point de rosée ambiant, aucune condensation n'est physiquement possible. Activer le système dans ces conditions est du gaspillage énergétique pur.
+
+L'**approximation de Magnus-Tetens** permet de calculer le point de rosée à partir de la température et de l'humidité relative. Dans la plage opérationnelle standard de -40°C à 50°C, elle produit des erreurs inférieures aux erreurs instrumentales typiques des capteurs de température et d'humidité — inférieure à **0,1°C** selon Campbell Scientific. Elle est d'ailleurs référencée dans les applications agricoles et d'ingénierie hydraulique pour ce type de calcul (MDPI, WMO).
+
+### Le prototype et sa boucle d'acquisition
+
+Le prototype physique repose sur une carte ESP32 reliée à des capteurs de température et d'humidité (DHT22) et à des modules relais pour le contrôle des actionneurs (ventilateur, compresseur principal, plaque Peltier). 
+
+Voici le circuit électronique du système de contrôle conçu pour cette boucle d'acquisition :
+
+![Prototype électronique et synoptique d'acquisition du système Aqua-Atmos](/assets/projects/aqua-atmos-electronics.jpg)
+
+La première couche de décision de l'ESP32 est un système de **règles déterministes** basé sur le calcul du point de rosée :
+
+```cpp
+// Approximation de Magnus-Tetens — valide entre -40°C et 50°C
+// Précision < 0.1°C en conditions normales (Campbell Scientific)
+float dewPoint(float T, float RH) {
+    const float a = 17.27f;
+    const float b = 237.7f;
+    float gamma = ((a * T) / (b + T)) + logf(RH / 100.0f);
+    return (b * gamma) / (a - gamma);
+}
+
+// Guard physique : condition nécessaire à toute activation
+bool condensationIsPossible(float surfaceTemp, float ambientTemp, float RH) {
+    return surfaceTemp < dewPoint(ambientTemp, RH);
+}
+```
+
+Ce niveau est non négociable : il protège le matériel, garantit la cohérence physique du système, et filtre les états impossibles avant que tout autre algorithme n'entre en jeu.
+
+---
+
+## 2. La couche adaptative : TinyML pour l'optimisation
+
+Les règles physiques définissent ce qui est *possible*. Elles ne définissent pas ce qui est *optimal*.
+
+Un seuil temporel fixe pour les cycles de dégivrage (exemple : "dégivrer toutes les 2 heures") ignore la réalité dynamique du système : l'inertie thermique réelle des composants, leur usure progressive, les micro-variations de pression et de flux d'air. Ces paramètres ne se modélisent pas analytiquement de manière fiable.
+
+C'est ici qu'intervient un modèle de **classification embarqué**. Les arbres de décision sont particulièrement adaptés à ce contexte : leur faible empreinte mémoire et leur exécution sans virgule flottante complexe les rendent idéaux pour un microcontrôleur contraint. Contrairement aux réseaux de neurones (même quantifiés via TensorFlow Lite for Microcontrollers), un arbre de décision converti en C conditionnel s'exécute en microsecondes sans surcoût de bibliothèque externe.
+
+```cpp
+// Arbre de décision compilé en règles C
+// Entraîné sur données historiques de fonctionnement
+typedef enum { STANDBY, ACTIVE_CONDENSATION, DEFROST } SystemState;
+
+SystemState classify(float humidity, float peltierTemp, uint32_t uptimeSec) {
+    if (humidity < 40.0f) {
+        return STANDBY;                    // Rendement trop faible
+    }
+    if (peltierTemp < -5.0f && uptimeSec > 3600) {
+        return DEFROST;                    // Risque de givrage détecté
+    }
+    return ACTIVE_CONDENSATION;
+}
+```
+
+---
+
+## 3. L'architecture pipeline en deux étages
+
+Le pipeline décisionnel final est séquentiel et non parallèle. Cette distinction est importante :
+
+1. **Stage 1 — Physical Guard** : validation des conditions thermodynamiques. Si les conditions ne sont pas réunies, le système reste en `STANDBY` sans jamais interroger le modèle.
+2. **Stage 2 — ML Classifier** : uniquement si le Stage 1 autorise l'action, le modèle prédictif choisit l'état optimal parmi les états valides.
+
+```
+[Capteurs] → [Guard physique] → ✗ STANDBY
+                              → ✓ [Classifieur ML] → ACTIVE | DEFROST
+```
+
+Cette séquentialité est la bonne pratique de référence dans la littérature TinyML (CSEM.ch, dev.to). Elle est aussi l'architecture adoptée dans les systèmes de maintenance prédictive industrielle : les règles métier filtrent d'abord, le ML optimise ensuite.
+
+---
+
+## Le trade-off énergétique chiffré
+
+En supprimant le besoin de connectivité réseau continue pour l'inférence, le système gagne sur deux fronts :
+- **Radio off** : consommation de quelques milliwatts en mode inférence locale, contre plusieurs centaines de milliwatts pour un module Wi-Fi actif.
+- **Latence nulle** : réponse en microsecondes, compatible avec le contrôle temps réel d'actionneurs physiques (relais, compresseur).
+
+Ce gain est d'autant plus stratégique dans des contextes de déploiement à énergie contrainte (solaire, batterie) — précisément les conditions des zones les plus touchées par la pénurie d'eau.

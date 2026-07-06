@@ -1,0 +1,152 @@
+---
+title: "Docker et CI/CD : Concevoir pour Kubernetes dès le premier jour"
+summary: "Guide d'architecture pour concevoir un conteneur et un pipeline CI/CD de sorte que la migration ultérieure vers Kubernetes ne nécessite aucun changement dans le code applicatif."
+date: "2026-07-06"
+img: "/assets/server-infrastructure.jpg"
+tags: ["Architecture", "CI/CD", "Docker", "Kubernetes"]
+---
+
+## L'Objectif : Migration sans refactoring
+
+Le cycle de vie d'une application impose souvent de commencer sur une infrastructure simple (un serveur VPS unique) pour des raisons de coût et de rapidité, avant de migrer vers un orchestrateur comme Kubernetes (K8s) pour gérer l'échelle. 
+
+Le piège classique de cette transition est la refonte du code applicatif. Une mauvaise isolation des variables d'environnement, des dépendances de build incluses dans l'image finale ou des privilèges système mal gérés forcent les développeurs à réécrire leurs Dockerfiles et leurs scripts au moment de la migration.
+
+Ce guide présente l'architecture d'un conteneur et d'un pipeline CI/CD conçus dès le départ pour éliminer cette friction. L'objectif est d'assurer que **le passage d'un VPS à un cluster Kubernetes se résume à un changement de fichiers de configuration d'infrastructure, sans modification du code de l'application.**
+
+---
+
+## 1. La construction du conteneur : Le contrat d'immuabilité
+
+Pour qu'un conteneur soit compatible avec l'orchestration Kubernetes sans modification, il doit respecter trois règles strictes lors de sa construction via Docker.
+
+### Règle A : Séparation stricte du Build et du Run (Multi-stage)
+L'image finale de production ne doit contenir aucun outil de build (compilateurs, paquets de développement, caches de package manager). Cela réduit la taille de l'image (facteur d'accélération du déploiement) et limite la surface d'attaque.
+
+### Règle B : Principe du moindre privilège (Non-Root)
+Par défaut, Docker exécute les processus en tant que `root`. Kubernetes, dans ses politiques de sécurité de production (Pod Security Standards), bloque ou rejette souvent les conteneurs s'exécutant en root. Le conteneur doit déclarer un utilisateur non-privilégié dès le départ.
+
+### Règle C : Configuration par l'environnement
+Aucun fichier de configuration propre à un environnement (développement, staging, production) ne doit être injecté dans l'image. Kubernetes injectera ces valeurs via des `ConfigMaps` et des `Secrets` sous forme de variables d'environnement au moment du lancement.
+
+Voici le Dockerfile standard mettant en œuvre ces règles pour une application web moderne (Node.js/Next.js/FastAPI) :
+
+```dockerfile
+# Étape 1 : Build
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+# Étape 2 : Production
+FROM node:18-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV production
+
+# Application de la règle B (Non-Root)
+RUN addgroup --system --gid 1001 nodegroup && \
+    adduser --system --uid 1001 nodeuser
+
+# Récupération uniquement des fichiers nécessaires au runtime
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/dist ./dist
+RUN npm ci --only=production
+
+USER nodeuser
+EXPOSE 3000
+CMD ["node", "dist/main.js"]
+```
+
+---
+
+## 2. Le Pipeline CI/CD : La séparation des responsabilités
+
+Le pipeline d'intégration continue (CI) a pour unique rôle de tester, de compiler l'image Docker conforme et de la pousser sur un registre de conteneurs (par exemple, GitHub Container Registry - GHCR). 
+
+Le pipeline de déploiement (CD), quant à lui, doit être découplé de la méthode d'exécution finale.
+
+### Phase initiales sur VPS (Docker Compose)
+Dans la phase de lancement, le déploiement sur VPS se fait via Docker Compose. La mise à jour est déclenchée par un script simple via SSH qui force le serveur à récupérer l'image compilée et à recréer le conteneur.
+
+```yaml
+# Pipeline CD pour VPS
+deploy-vps:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Mise à jour du conteneur sur VPS
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.SERVER_IP }}
+        script: |
+          docker login ghcr.io -u github-actions --password-stdin
+          docker compose pull web
+          docker compose up -d --no-deps web
+```
+
+---
+
+## 3. Le point de bascule : La migration vers Kubernetes
+
+Lorsque l'application nécessite de la haute disponibilité (redondance sur plusieurs nœuds) ou de l'auto-scaling, l'infrastructure migre vers Kubernetes. 
+
+Grâce aux règles de conception appliquées ci-dessus, **aucune modification n'est requise sur le Dockerfile ou sur la partie CI du pipeline**. L'image Docker reste strictement la même. Le déploiement s'effectue en traduisant la configuration Docker Compose en manifestes Kubernetes.
+
+Voici le manifeste de déploiement Kubernetes équivalent, prêt pour la production :
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app
+  namespace: production
+spec:
+  replicas: 3 # Redondance et haute disponibilité
+  selector:
+    matchLabels:
+      app: web-app
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0 # Zéro temps d'arrêt pendant la mise à jour
+  template:
+    metadata:
+      labels:
+        app: web-app
+    spec:
+      containers:
+      - name: web
+        image: ghcr.io/org/web-app:1.2.0 # Utilisation de l'image immuable déjà compilée par la CI
+        ports:
+        - containerPort: 3000
+        resources: # Gestion stricte des ressources pour éviter les crashs de nœuds
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe: # Redémarrage automatique si le processus est bloqué
+          httpGet:
+            path: /healthz
+            port: 3000
+        readinessProbe: # Envoi du trafic uniquement si le conteneur est prêt
+          httpGet:
+            path: /ready
+            port: 3000
+```
+
+## Synthèse des correspondances d'infrastructure
+
+La table suivante récapitule comment les concepts de l'infrastructure de base (VPS) se traduisent directement dans l'infrastructure cible (Kubernetes) sans impact sur le code :
+
+| Concept | Équivalent VPS (Lancement) | Équivalent Kubernetes (Échelle) |
+| :--- | :--- | :--- |
+| **Routage / SSL** | Nginx Reverse Proxy / Certbot | Ingress Controller (ex: Nginx, Traefik) |
+| **Variables d'env** | Fichier `.env` sur le serveur | `ConfigMap` et `Secret` K8s |
+| **Vérification de santé** | Redémarrage manuel / Uptime Kuma | `livenessProbe` et `readinessProbe` |
+| **Redondance** | Non gérée (single host) | Multi-réplicas répartis sur plusieurs nœuds |
+
+En appliquant ces standards dès la première ligne de code, l'équipe d'ingénierie s'assure une transition fluide et sécurisée vers l'état de l'art technologique au moment exact où la croissance du produit le justifie.

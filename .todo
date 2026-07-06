@@ -1,8 +1,69 @@
+## Fait ✅
 - [x] mode system par défaut
 - [x] SEO avancé (profil technique réel, concret, droit au but, sans fioritures marketing)
-- [x] bouton disutons, enlever télécharger CV (mode produit, entrepreneur)
-- [ ] finaliser les contenus restants: articles, textes secondaires, éventuelles images manquantes
-- [ ] refaire la page articles et son déroulement
-- [ ] déployer le projet calendar
+- [x] bouton "discutons", enlever télécharger CV (mode produit, entrepreneur)
+- [x] intégration Aqua-Atmos (expériences + projets + image)
+- [x] mise à jour contacts (email centrale, whatsapp)
+- [x] profil GitHub (repo Appolinairee, stack badges, projets phares, épuré)
+- [x] biographie About mise à jour + mise en gras des éléments clés
+- [x] compteurs About mis à jour (12+ projets, 5+ ans, 3+ axes)
+- [x] titre Centrale Casablanca → "Ingénieur Généraliste"
+
+## En cours / À faire 🔧
+
+### Articles (priorité haute)
+- [ ] écrire les articles techniques (voir plan ci-dessous) - *En cours (2/4 rédigés)*
+- [x] refaire la page /articles : layout cards, filtres par thème, ordre chronologique inversé
+- [ ] ajouter les métadonnées SEO individuelles par article (title, description, og:image)
+
+### SEO viral (priorité haute)
+- [x] ajouter structured data JSON-LD (Person + Article schema)
+- [x] générer un sitemap.xml dynamique (Next.js route handler)
+- [x] générer un robots.txt cohérent
+- [ ] ajouter og:image personnalisée (1200x630) pour chaque page clé (accueil, projets, articles)
+- [ ] vérifier canonical URLs sur toutes les pages
+- [ ] soumettre le sitemap à Google Search Console
+- [ ] forcer LinkedIn à rafraîchir le cache via LinkedIn Post Inspector (https://www.linkedin.com/post-inspector/)
+- [ ] forcer Twitter/X à rafraîchir via Twitter Card Validator
+- [ ] forcer Facebook via Sharing Debugger (https://developers.facebook.com/tools/debug/)
+
+### Qualité & polish
 - [ ] relire l'ensemble du portfolio sur mobile et desktop
+- [ ] déployer le projet calendar
 - [ ] mettre à jour `baseline-browser-mapping` pour supprimer l'avertissement de build
+
+---
+
+## Plan Articles — Idées Techniques & Originales
+
+### Catégorie : Produit & Architecture
+1. **"Construire une marketplace B2B de zéro : les vraies décisions d'architecture"**
+   → NestJS vs Laravel, monorepo vs multi-repo, auth multi-rôles, gestion des paiements
+   → Basé sur Shopinxx, très concret
+
+2. **"CI/CD sur VPS Linux sans Kubernetes : ce que j'ai appris"**
+   → GitHub Actions + Docker + Nginx + Certbot sur un VPS OVH/Hetzner
+   → Pattern simple, reproductible, anti-over-engineering
+
+### Catégorie : IoT & Embedded
+3. **"Faire décider une machine à l'aide de règles physiques + ML : le cas Aqua-Atmos"**
+   → Architecture de décision embarquée (ESP32), seuils physiques, fallback ML
+   → Hybridation règles/IA, avec code réel
+
+4. **"Dashboard temps réel Flask/Raspberry Pi : ce que j'aurais fait différemment"**
+   → WebSockets vs polling, gestion des déconnexions, leçons apprises
+
+### Catégorie : ML Engineering
+5. **"Du notebook au produit : pipeline ML en production sans MLflow ni Kubernetes"**
+   → scikit-learn, joblib, FastAPI, Dockerfile, déploiement VPS
+   → Basé sur CardioSense, pragmatique et direct
+
+6. **"Prédire l'insuffisance cardiaque : analyse critique du dataset, du modèle et des biais"**
+   → Interprétabilité (SHAP), biais de données médicales, limites réelles du modèle
+
+### Catégorie : Dev & Craft
+7. **"TDD sur une API NestJS : pas un luxe, une contrainte productive"**
+   → Jest, guards, interceptors, couverture réelle sur Shopinxx
+
+8. **"Next.js App Router en 2025 : ce que personne ne te dit sur les Server Components"**
+   → Hydratation, streaming, trade-offs réels, retour d'expérience portfolio
