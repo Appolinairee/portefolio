@@ -22,7 +22,7 @@ export default function ExplainWithAI({ title }: ExplainWithAIProps) {
 
   const handleRedirect = (platform: "perplexity" | "chatgpt" | "claude") => {
     const articleUrl = window.location.href;
-    const promptText = `Résume cet article technique : ${articleUrl}`;
+    const promptText = `Résume cet article technique intitulé "${title}" : ${articleUrl}`;
     
     let targetUrl = "";
     if (platform === "perplexity") {

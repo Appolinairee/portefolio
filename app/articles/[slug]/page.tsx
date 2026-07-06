@@ -61,13 +61,22 @@ const mdxComponents = {
 };
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  let meta;
+  let content;
+
   try {
     const { slug } = await params;
-    const { meta, content } = await getArticleBySlug(slug);
+    const article = await getArticleBySlug(slug);
+    meta = article.meta;
+    content = article.content;
+  } catch (error) {
+    console.error(error);
+    notFound();
+  }
 
-    return (
-      <main className="w-full mb-16 flex flex-col items-center justify-center dark:text-light">
-        <script
+  return (
+    <main className="w-full mb-16 flex flex-col items-center justify-center dark:text-light">
+      <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -142,9 +151,4 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           
         </Layout>
       </main>
-    );
-  } catch (error) {
-    console.error(error);
-    notFound();
-  }
 }
